@@ -1,0 +1,134 @@
+/* header font */
+@font-face {
+  font-family: 'HeaderFont';
+  src: url('./assets/TheBasics-Medium.otf');
+}
+
+@font-face {
+  font-family: 'ContentFont';
+  src: url('./assets/ArbelHagilda_Regular.otf');
+}
+
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'HeaderFont', sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* full-page scroll snapping */
+.container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.section {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 16px;
+  height: calc(100vh - 100px);
+  box-sizing: border-box;
+  align-content: center;
+}
+.home-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.home-item span {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* header on category */
+.category-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+.category-header button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.category-header h1 {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 18px;
+}
+
+.app-header {
+  /* position: fixed; */
+  top: 0; left: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
+}
+
+.app-header img {
+  height: 90%;
+  object-fit: cover;
+}
+
+.app-header p {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: auto;
+  padding-left: 42px;
+}
+
+.app-header .logo {
+  width: 120vw;
+  pointer-events: none;
+}
+
+/* push content below the header */
+#root, .container, .home-grid {
+  box-sizing: border-box;
+}
+.home-video {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.home-title {
+  padding: 8px;
+  text-align: center;
+  margin-top: 8px;
+  width: 100%;
+}
