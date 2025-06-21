@@ -1,0 +1,54 @@
+
+.payment-processed-page {
+  min-height: calc(100vh - 212px);
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 0;
+  direction: rtl;
+  position: relative;
+}
+.checkmark-circle {
+  margin-top: 72px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-title {
+  color: #fff;
+  font-size: 2.1rem;
+  font-family: inherit;
+  margin: 0 0 18px 0;
+  text-align: center;
+}
+.order-num {
+  color: #bbb;
+  font-size: 1.05rem;
+  margin: 0;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.bottle-video {
+  height: 323px;
+  margin: 42px 0 42px 0;
+  border-radius: 16px;
+  background: #222;
+  object-fit: cover;
+  display: block;
+}
+.thank-you-text {
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 36px;
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+.thank-you-text p {
+  margin: 0;
+}
+

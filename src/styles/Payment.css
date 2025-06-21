@@ -1,0 +1,130 @@
+.payment-page {
+  min-height: calc(100vh - 212px);
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  direction: rtl;
+  padding-bottom: 40px;
+}
+
+.buy-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  outline: none;
+}
+
+.buy-button:active {
+  transform: scale(0.95);
+}
+
+.buy-button.pulse-effect {
+  animation: pulse 0.3s ease-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.buy-button-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.2s ease;
+}
+
+.buy-button:disabled .buy-button-img {
+  opacity: 0.7;
+}
+
+.payment-card-stack {
+  position: relative;
+  width: 340px;
+  height: 200px;
+  margin-bottom: 32px;
+  margin-top: 16px;
+}
+.card-back {
+position: absolute;
+  top: -59px;
+  left: -10px;
+  width: 360px;
+  opacity: 1;
+  z-index: 1;
+}
+.card-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 340px;
+  z-index: 2;
+}
+.payment-or {
+  color: #bbb;
+  font-size: 1.1rem;
+  margin: 0 0 36px 0;
+  text-align: center;
+}
+
+.payment-options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+.payment-option {
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  width: 320px;
+  font-size: 1.3rem;
+  font-family: inherit;
+  padding: 12px 28px 12px 0;
+  gap: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 16px #0002;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.payment-option img {
+  width: 32px;
+  height: 32px;
+  margin-left: 18px;
+}
+.payment-option:active, .payment-option:focus {
+  background: #333;
+  box-shadow: 0 4px 24px #0004;
+}
+
+.payment-buy-btn {
+  background: #191919;
+  border: none;
+  border-radius: 22px;
+  width: 200px;
+  height: 54px;
+  margin: 36px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 16px #0002;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.payment-buy-btn img {
+  height: 32px;
+  width: auto;
+}
+.payment-buy-btn:active, .payment-buy-btn:focus {
+  background: #222;
+  box-shadow: 0 4px 24px #0004;
+}

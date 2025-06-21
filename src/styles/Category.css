@@ -1,0 +1,154 @@
+.arrow-go-down {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) rotate(270deg);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: float 2s ease-in-out infinite;
+}
+
+.arrow-go-down:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px) rotate(270deg);
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(270deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px) rotate(270deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) rotate(270deg);
+  }
+}
+
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  height: calc(100vh - 240px);
+  margin: 0 auto 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.arrow-up-container {
+  position: relative;
+  width: 100%;
+  padding: 40px 0 80px;
+}
+
+.arrow-up {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: float-up 2s ease-in-out infinite;
+}
+
+.arrow-up:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px) rotate(90deg);
+}
+
+/* Cart and Add to Cart Buttons */
+.fade-in-category {
+  opacity: 0;
+  position: relative;
+  animation: fadeInCategory 0.8s ease 0s forwards;
+}
+.fade-in-category.hidden {
+  opacity: 0;
+  animation: none;
+}.fade-in-category.hidden {
+  opacity: 0;
+  animation: none;
+}
+@keyframes fadeInCategory {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cart-button, .add-to-cart-button {
+  position: fixed;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cart-button {
+  position: fixed;
+  bottom: 120px;
+  width: 161.74px;
+  height: 60px;
+  left: -20px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  /* no highlight */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.add-to-cart-button {
+  position: fixed;
+  bottom: 105px;
+  width: 100px;
+  height: 100px;
+  right: 0;
+  z-index: 1000;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.2s;
+  opacity: 1;
+  /* no highlight */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.add-to-cart-button.confirmed {
+  opacity: 1;
+  animation: fadeInOut 1s;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+.cart-button:hover, .add-to-cart-button:hover {
+  transform: scale(1.1);
+}
+
+.cart-button:active, .add-to-cart-button:active {
+  transform: scale(0.95);
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(90deg);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-10px) rotate(90deg);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0) rotate(90deg);
+  }
+}

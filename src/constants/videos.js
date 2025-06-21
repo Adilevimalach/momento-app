@@ -22,6 +22,28 @@ import age from '../assets/icons/התיישנות.mp4';
 import sweetness from '../assets/icons/מתיקות_1.mp4';
 import typeOfWine from '../assets/icons/סוג יין.mp4';
 
+import pageVideo1 from '../assets/pages/each page video/גשם על החלון טלפון2.mp4';
+import pageVideo2 from '../assets/pages/each page video/כוסות באוויר לאייפון.mp4';
+import pageVideo3 from '../assets/pages/each page video/ערב רומנטי.mp4';
+import pageVideo4 from '../assets/pages/each page video/שישי משפחתי טלפון 2.mp4';
+import pageVideo5 from '../assets/pages/each page video/שמש על הדשא לטלפון.mp4';
+import pageVideo6 from '../assets/pages/each page video/שקיעה מול הים.mp4';
+
+import checkoutWine1 from '../assets/pages/bottles checkout/מוקאפ גשם.mp4';
+import checkoutWine2 from '../assets/pages/bottles checkout/מוקאפ ערב רומנטי.mp4';
+import checkoutWine3 from '../assets/pages/bottles checkout/מוקאפ דשא.mp4';
+import checkoutWine4 from '../assets/pages/bottles checkout/מוקאפ שישי.mp4';
+import checkoutWine5 from '../assets/pages/bottles checkout/מוקאפ מסיבה.mp4';
+import checkoutWine6 from '../assets/pages/bottles checkout/מוקאפ יין שקיעה בים.mp4';
+
+import videoPrice109 from '../assets/buttons/prices/price 109.svg';
+import videoPrice119 from '../assets/buttons/prices/price 119.svg';
+import videoPrice125 from '../assets/buttons/prices/price 125.svg';
+import videoPrice159 from '../assets/buttons/prices/price 159.svg';
+import videoPrice189 from '../assets/buttons/prices/price 189.svg';
+import videoPrice209 from '../assets/buttons/prices/price 209.svg';
+
+
 const WINE_DETAILS = {
   typeOfWine: { title: 'סוג יין', video: typeOfWine },
   area: { title: 'אזור ובציר', video: area },
@@ -39,9 +61,13 @@ export const getWineDetail = (id) => WINE_DETAILS[id];
 export const VIDEO_OPTIONS = [
   {
     id: 'rain',
-    label: 'גשם על החלון',
+    label: 'חורף ביתי',
     mp4: vid1,
-    titleSvg: title1,
+    titleSvg: title5,
+    price: 159,
+    priceSvg: videoPrice159,
+    pageVideo: pageVideo1,
+    checkoutVideo: checkoutWine1,
     description: {
       typeOfWine: 'יין לבן חצי יבש',
       area: 'הגליל העליון, 2023',
@@ -56,9 +82,13 @@ export const VIDEO_OPTIONS = [
   },
   {
     id: 'shranim',
-    label: 'שולחן לשניים',
+    label: 'ערב רומנטי',
     mp4: vid3,
-    titleSvg: title2,
+    titleSvg: title1,
+    price: 209,
+    priceSvg: videoPrice209,
+    pageVideo: pageVideo3,
+    checkoutVideo: checkoutWine2,
     description: {
       typeOfWine: 'יין אדום יבש',
       area: 'רמת הגולן, 2021',
@@ -75,7 +105,11 @@ export const VIDEO_OPTIONS = [
     id: 'avirot',
     label: 'כוסות באוויר',
     mp4: vid2,
-    titleSvg: title3,
+    titleSvg: title4,
+    price: 119,
+    priceSvg: videoPrice119,
+    pageVideo: pageVideo2,
+    checkoutVideo: checkoutWine3,
     description: {
       typeOfWine: 'יין ורוד חצי יבש',
       area: 'השרון, 2023',
@@ -92,7 +126,11 @@ export const VIDEO_OPTIONS = [
     id: 'mishpachti',
     label: 'שישי משפחתי',
     mp4: vid4,
-    titleSvg: title4,
+    titleSvg: title2,
+    price: 109,
+    priceSvg: videoPrice109,
+    pageVideo: pageVideo4,
+    checkoutVideo: checkoutWine4,
     description: {
       typeOfWine: 'בלנד אדום יבש',
       area: 'הרי ירושלים, 2020',
@@ -109,7 +147,11 @@ export const VIDEO_OPTIONS = [
     id: 'shamesh',
     label: 'שמש על הדשא',
     mp4: vid5,
-    titleSvg: title5,
+    titleSvg: title3,
+    price: 189,
+    priceSvg: videoPrice189,
+    pageVideo: pageVideo5,
+    checkoutVideo: checkoutWine5,
     description: {
       typeOfWine: 'רוזה יבש',
       area: 'הגליל העליון, 2023',
@@ -127,6 +169,10 @@ export const VIDEO_OPTIONS = [
     label: 'שקיעה מול הים',
     mp4: vid6,
     titleSvg: title6,
+    price: 125,
+    priceSvg: videoPrice125,
+    pageVideo: pageVideo6,
+    checkoutVideo: checkoutWine6,
     description: {
       typeOfWine: 'יין לבן יבש',
       area: 'הגליל העליון, 2023',

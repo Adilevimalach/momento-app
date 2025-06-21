@@ -1,0 +1,12 @@
+.cart-button {
+  position: fixed;
+  bottom: 120px;
+  width: 161.74px;
+  height: 60px;
+  left: -20px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  /* no highlight */
+  -webkit-tap-highlight-color: transparent;
+}
