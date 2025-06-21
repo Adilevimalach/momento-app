@@ -22,7 +22,17 @@ export default function Header() {
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
+  const [cameFromPaymentComplete, setCameFromPaymentComplete] = useState(false);
 
+  // Handle payment complete navigation state
+  useEffect(() => {
+    if (location.state?.fromPaymentComplete) {
+      // Clear the state to prevent it from affecting future navigations
+      window.history.replaceState({ ...window.history.state, fromPaymentComplete: false }, '');
+    }
+  }, [location.pathname]);
+
+  // Logo animation
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentLogoIndex((prevIndex) => (prevIndex + 1) % logos.length);
@@ -55,6 +65,9 @@ export default function Header() {
   }, [location.pathname]);
 
   const isPaymentComplete = location.pathname === '/payment-complete';
+  // Show back button on all pages except home and about
+  const showBackArrow = !isHomePage && !isAboutPage;
+
   return (
     <header className={`app-header${isPaymentComplete ? ' payment-complete-header' : ''}`}>
       {isPaymentComplete ? (
@@ -62,11 +75,18 @@ export default function Header() {
           src={arrowX}
           alt="close"
           className="close-btn"
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/', { state: { fromPaymentComplete: true } })}
         />
       ) : (
         <>
-          {!isAboutPage && <img src={arrow} alt="arrow" className="arrow" onClick={() => navigate(-1)} />}
+          {showBackArrow && (
+            <img
+              src={arrow}
+              alt="back"
+              className="arrow"
+              onClick={() => navigate(-1)}
+            />
+          )}
           {location.pathname === '/payment' ? (
             <h2 style={{ textAlign: 'center', width: '100%', position: 'absolute', top: '10%', left: '50%', transform: 'translate(-50%, -50%)' }}>שיטת תשלום</h2>
           ) : isCartPage ? (

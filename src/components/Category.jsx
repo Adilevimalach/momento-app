@@ -93,36 +93,40 @@ export default function Category() {
           }}
           aria-label={video.label}
         />
+        {showContent && (
+          <>
+            {/* Cart Button */}
+            <img
+              src={cartIcon}
+              alt="Cart"
+              className="cart-button"
+              onClick={() => navigate('/cart')}
+            />
+
+            {/* Add to Cart Button */}
+            <img
+              src={showConfirmation ? addToCartIconConfirmed : video.priceSvg}
+              alt={showConfirmation ? 'Added to Cart' : 'Add to Cart'}
+              className={`add-to-cart-button${showConfirmation ? ' confirmed' : ''}`}
+              onClick={handleAddToCart}
+              style={{ transition: 'opacity 0.3s' }}
+            />
+
+            <img
+              src={arrow}
+              alt="Scroll down"
+              className="arrow-go-down"
+              onClick={scrollToDetails}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && scrollToDetails()}
+            />
+          </>
+        )}
       </div>
 
       {showContent && (
         <div className="fade-in-category">
-          {/* Cart Button */}
-          <img
-            src={cartIcon}
-            alt="Cart"
-            className="cart-button"
-            onClick={() => navigate('/cart')}
-          />
-
-          {/* Add to Cart Button */}
-          <img
-            src={showConfirmation ? addToCartIconConfirmed : video.priceSvg}
-            alt={showConfirmation ? 'Added to Cart' : 'Add to Cart'}
-            className={`add-to-cart-button${showConfirmation ? ' confirmed' : ''}`}
-            onClick={handleAddToCart}
-            style={{ transition: 'opacity 0.3s' }}
-          />
-
-          <img
-            src={arrow}
-            alt="Scroll down"
-            className="arrow-go-down"
-            onClick={scrollToDetails}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && scrollToDetails()}
-          />
 
           <div ref={detailsRef} style={{
             display: 'grid',

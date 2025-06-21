@@ -10,6 +10,7 @@
   opacity: 0.8;
   transition: transform 0.3s ease, opacity 0.3s ease;
   animation: float 2s ease-in-out infinite;
+  pointer-events: auto;
 }
 
 .arrow-go-down:hover {
@@ -37,6 +38,11 @@
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+  pointer-events: none;
+}
+
+.video-container > * {
+  pointer-events: auto;
 }
 
 .arrow-up-container {
