@@ -34,6 +34,12 @@
 
 .begin-button img {
   width: 200px;
+  height: 200px;
+}
+
+.begin-button-placeholder {
+  width: 200px;
+  height: 200px;
 }
 
 @keyframes fadeIn {

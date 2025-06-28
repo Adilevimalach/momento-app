@@ -24,11 +24,11 @@ export default function ControllerTransition() {
     <div className="controller-transition-root">
       <div className="transition-content">
         <img src={textEntrance} alt="אנחנו לא רק מייצרים יין, אנחנו מייצרים רגעים" className="transition-text-img" />
-        {showButton && (
+        {showButton ? (
           <button className="begin-button" onClick={handleNext}>
             <img src={beginButton} alt="שנתחיל?" />
           </button>
-        )}
+        ) : <div className="begin-button-placeholder"></div>}
       </div>
     </div>
   );

@@ -37,9 +37,6 @@ export default function ControllerWelcome() {
     if (el.requestFullscreen) el.requestFullscreen();
   };
 
-  const exitFullscreen = () => {
-    if (document.exitFullscreen) document.exitFullscreen();
-  };
 
   const handleDragStart = (e) => {
     e.preventDefault();
@@ -49,7 +46,7 @@ export default function ControllerWelcome() {
   const handleDragEnd = () => {
     if (isDragging) {
       if (sliderValue < 95) {
-        setSliderValue(0); // Snap back if not fully slid
+        setSliderValue(13); // Snap back if not fully slid
       }
       setIsDragging(false);
     }

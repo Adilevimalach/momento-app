@@ -57,7 +57,12 @@ import videoPrice189 from '../assets/buttons/prices/price 189.svg';
 import videoPrice209 from '../assets/buttons/prices/price 209.svg';
 
 import sampleQR from '../assets/IPAD/sample_QR.jpeg';
+import qr1 from '../assets/IPAD/qr-codes/qr_rain.png';
+import qr2 from '../assets/IPAD/qr-codes/qr_shranim.png';
+import qr3 from '../assets/IPAD/qr-codes/qr_avirot.png';
 import qr4 from '../assets/IPAD/qr-codes/qr_mishpachti.png';
+import qr5 from '../assets/IPAD/qr-codes/qr_shamesh.png';
+import qr6 from '../assets/IPAD/qr-codes/qr_shkira.png';
 
 const WINE_DETAILS = {
   typeOfWine: { title: 'סוג יין', video: typeOfWine },
@@ -85,7 +90,7 @@ export const VIDEO_OPTIONS = [
     ipadVideo: ipadV1,
     pageVideo: pageVideo1,
     videoTime: 15,
-    qrCode: sampleQR,
+    qrCode: qr1,
     checkoutVideo: checkoutWine1,
     description: {
       typeOfWine: 'יין לבן חצי יבש',
@@ -110,7 +115,7 @@ export const VIDEO_OPTIONS = [
     ipadVideo: ipadV2,
     pageVideo: pageVideo3,
     videoTime: 15,
-    qrCode: sampleQR,
+    qrCode: qr2,
     checkoutVideo: checkoutWine2,
     description: {
       typeOfWine: 'יין אדום יבש',
@@ -135,7 +140,7 @@ export const VIDEO_OPTIONS = [
     ipadVideo: ipadV3,
     pageVideo: pageVideo2,
     videoTime: 15,
-    qrCode: sampleQR,
+    qrCode: qr3,
     checkoutVideo: checkoutWine3,
     description: {
       typeOfWine: 'יין ורוד חצי יבש',
@@ -185,7 +190,7 @@ export const VIDEO_OPTIONS = [
     ipadVideo: ipadV5,
     pageVideo: pageVideo5,
     videoTime: 15,
-    qrCode: sampleQR,
+    qrCode: qr5,
     checkoutVideo: checkoutWine5,
     description: {
       typeOfWine: 'רוזה יבש',
@@ -210,7 +215,7 @@ export const VIDEO_OPTIONS = [
     ipadVideo: ipadV6,
     pageVideo: pageVideo6,
     videoTime: 15,
-    qrCode: sampleQR,
+    qrCode: qr6,
     checkoutVideo: checkoutWine6,
     description: {
       typeOfWine: 'יין לבן יבש',

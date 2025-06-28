@@ -49,8 +49,9 @@
 }
 
 .video-title-header {
-  height: 60px;
+  height: 40px;
   width: auto;
+  padding-left: 100px;
   filter: brightness(0) invert(1);
 }
 
