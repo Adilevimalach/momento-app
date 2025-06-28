@@ -1,0 +1,288 @@
+.controller-video-root {
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  padding: 20px;
+  direction: rtl;
+  font-family: 'Heebo', sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.purchase-button {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: none;
+}
+
+.purchase-button:hover {
+  transform: scale(1.05);
+}
+
+.purchase-button-img {
+  width: 200px;
+}
+
+.video-header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  padding-bottom: 32px;
+}
+
+.logo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.header-logo {
+  height: 40px;
+  width: auto;
+}
+
+.video-title-header {
+  height: 60px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.not-your-moment {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.not-your-moment img {
+  width: 60px;
+  height: 60px;
+  filter: brightness(0) invert(1);
+}
+
+.not-your-moment:hover {
+  opacity: 0.8;
+}
+
+.video-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.video-description {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.video-description p {
+  font-size: 18px;
+  margin: 8px 0;
+  color: #ccc;
+  font-weight: 300;
+}
+
+.main-video-container {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.main-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.details-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.details-arrow {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(1);
+  transform: rotate(270deg);
+}
+
+.wine-details-content {
+  flex: 1;
+  padding: 40px;
+  padding-top: 0;
+}
+
+.wine-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.wine-detail-item {
+text-align: center;
+}
+
+.horizontal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.wine-detail-item.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-separator {
+  grid-column: 1 / -1;
+  height: 1px;
+  background-color: #fff;
+}
+
+.detail-video-container {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.detail-video {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.detail-title {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: white;
+  font-weight: 400;
+}
+
+.detail-description {
+  margin: 0;
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+.back-to-video {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.back-arrow-rotated {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(1);
+  transform: rotate(90deg);
+}
+
+.video-info {
+  margin-top: 2rem;
+  text-align: center;
+  direction: rtl;
+}
+
+.video-info p {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.video-info p:first-child {
+  font-size: 1.4rem;
+  color: white;
+  font-weight: 300;
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.control-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.control-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.next-arrow {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+@media (max-width: 768px) {
+  .wine-details-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .video-header {
+    padding: 20px;
+    padding-bottom: 0;
+  }
+
+  .video-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .video-content {
+    padding: 1rem;
+  }
+
+  .video-controls {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}

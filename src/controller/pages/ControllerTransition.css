@@ -1,0 +1,43 @@
+.controller-transition-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #000;
+  color: white;
+  font-family: system-ui, -apple-system, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+.transition-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.transition-text-img {
+  max-width: 80vw;
+  height: auto;
+  margin-bottom: 4rem;
+}
+
+.begin-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.begin-button img {
+  width: 200px;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

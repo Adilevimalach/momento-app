@@ -1,9 +1,22 @@
-import vid1 from '../assets/moments/גשם על החלון עם צבע.mp4';
-import vid2 from '../assets/moments/כוסות באויר עם צבע_1.mp4';
-import vid3 from '../assets/moments/שולחן ל2 עם צבע.mp4';
-import vid4 from '../assets/moments/שישי משפחתי חדש.mp4';
-import vid5 from '../assets/moments/שמש על הדשא עם צבע.mp4';
-import vid6 from '../assets/moments/שקיעה מול הים עם צבע_1.mp4';
+import vid1 from '../assets/moments/rain.mp4';
+import vid1BW from '../assets/moments/rain_bw.mp4';
+import vid2 from '../assets/moments/cups.mp4';
+import vid2BW from '../assets/moments/cups_bw.mp4';
+import vid3 from '../assets/moments/table.mp4';
+import vid3BW from '../assets/moments/table_bw.mp4';
+import vid4 from '../assets/moments/friday.mp4';
+import vid4BW from '../assets/moments/friday_bw.mp4';
+import vid5 from '../assets/moments/sun.mp4';
+import vid5BW from '../assets/moments/sun_bw.mp4';
+import vid6 from '../assets/moments/sunset.mp4';
+import vid6BW from '../assets/moments/sunset_bw.mp4';
+
+import ipadV1 from '../assets/IPAD/videos moments/גשם לרוחב.mp4';
+import ipadV2 from '../assets/IPAD/videos moments/כוסות באוויר לרוחב_2.mp4'
+import ipadV3 from '../assets/IPAD/videos moments/פרח חדש לרוחב_6.mp4';
+import ipadV4 from '../assets/IPAD/videos moments/שישי משפחתי לרוחב חדש.mp4';
+import ipadV5 from '../assets/IPAD/videos moments/שמש על הדשא לרוחב_ ניסיון1.mp4';
+import ipadV6 from '../assets/IPAD/videos moments/שקיעה מול הים לרוחב חדש.mp4';
 
 import title1 from '../assets/dinner for2.svg';
 import title2 from '../assets/friday.svg';
@@ -43,6 +56,8 @@ import videoPrice159 from '../assets/buttons/prices/price 159.svg';
 import videoPrice189 from '../assets/buttons/prices/price 189.svg';
 import videoPrice209 from '../assets/buttons/prices/price 209.svg';
 
+import sampleQR from '../assets/IPAD/sample_QR.jpeg';
+import qr4 from '../assets/IPAD/qr-codes/qr_mishpachti.png';
 
 const WINE_DETAILS = {
   typeOfWine: { title: 'סוג יין', video: typeOfWine },
@@ -63,10 +78,14 @@ export const VIDEO_OPTIONS = [
     id: 'rain',
     label: 'חורף ביתי',
     mp4: vid1,
+    mp4BW: vid1BW,
     titleSvg: title5,
     price: 159,
     priceSvg: videoPrice159,
+    ipadVideo: ipadV1,
     pageVideo: pageVideo1,
+    videoTime: 15,
+    qrCode: sampleQR,
     checkoutVideo: checkoutWine1,
     description: {
       typeOfWine: 'יין לבן חצי יבש',
@@ -84,10 +103,14 @@ export const VIDEO_OPTIONS = [
     id: 'shranim',
     label: 'ערב רומנטי',
     mp4: vid3,
+    mp4BW: vid3BW,
     titleSvg: title1,
     price: 209,
     priceSvg: videoPrice209,
+    ipadVideo: ipadV2,
     pageVideo: pageVideo3,
+    videoTime: 15,
+    qrCode: sampleQR,
     checkoutVideo: checkoutWine2,
     description: {
       typeOfWine: 'יין אדום יבש',
@@ -105,10 +128,14 @@ export const VIDEO_OPTIONS = [
     id: 'avirot',
     label: 'כוסות באוויר',
     mp4: vid2,
+    mp4BW: vid2BW,
     titleSvg: title4,
     price: 119,
     priceSvg: videoPrice119,
+    ipadVideo: ipadV3,
     pageVideo: pageVideo2,
+    videoTime: 15,
+    qrCode: sampleQR,
     checkoutVideo: checkoutWine3,
     description: {
       typeOfWine: 'יין ורוד חצי יבש',
@@ -126,10 +153,14 @@ export const VIDEO_OPTIONS = [
     id: 'mishpachti',
     label: 'שישי משפחתי',
     mp4: vid4,
+    mp4BW: vid4BW,
     titleSvg: title2,
     price: 109,
     priceSvg: videoPrice109,
+    ipadVideo: ipadV4,
     pageVideo: pageVideo4,
+    videoTime: 15,
+    qrCode: qr4,
     checkoutVideo: checkoutWine4,
     description: {
       typeOfWine: 'בלנד אדום יבש',
@@ -147,10 +178,14 @@ export const VIDEO_OPTIONS = [
     id: 'shamesh',
     label: 'שמש על הדשא',
     mp4: vid5,
+    mp4BW: vid5BW,
     titleSvg: title3,
     price: 189,
     priceSvg: videoPrice189,
+    ipadVideo: ipadV5,
     pageVideo: pageVideo5,
+    videoTime: 15,
+    qrCode: sampleQR,
     checkoutVideo: checkoutWine5,
     description: {
       typeOfWine: 'רוזה יבש',
@@ -168,10 +203,14 @@ export const VIDEO_OPTIONS = [
     id: 'shkira',
     label: 'שקיעה מול הים',
     mp4: vid6,
+    mp4BW: vid6BW,
     titleSvg: title6,
     price: 125,
     priceSvg: videoPrice125,
+    ipadVideo: ipadV6,
     pageVideo: pageVideo6,
+    videoTime: 15,
+    qrCode: sampleQR,
     checkoutVideo: checkoutWine6,
     description: {
       typeOfWine: 'יין לבן יבש',

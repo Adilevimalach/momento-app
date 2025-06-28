@@ -1,0 +1,54 @@
+.controller-loading-root {
+  min-height: 100vh;
+  background: #000;
+  color: white;
+  font-family: system-ui, -apple-system, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  direction: rtl;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.loading-content h2 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin: 0;
+  color: #f0c674;
+}
+
+.loading-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.loading-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #333;
+  transition: background-color 0.3s ease;
+}
+
+.loading-dot.filled {
+  background: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.loading-text {
+  color: #666;
+  font-size: 1rem;
+}
+
+.loading-text p {
+  margin: 0;
+}

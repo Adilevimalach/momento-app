@@ -1,0 +1,55 @@
+.controller-purchase-root {
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  font-family: 'Heebo', sans-serif;
+}
+
+.purchase-header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.back-to-moment {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.back-to-moment .arrow {
+    width: 60px;
+    height: 60px;
+    filter: brightness(0) invert(1);
+}
+
+.purchase-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.purchase-content p {
+  font-size: 18px;
+  font-weight: 300;
+}
