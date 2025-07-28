@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getVideoById } from '../../constants/videos';
 import logo from '../../assets/IPAD/logo m/m ipad.svg';
-import backArrow from '../../assets/IPAD/back-arrow.svg';
+import backArrow from '../../assets/nextMoment.svg';
+import descrEllipse from '../../assets/descrEllipse.svg';
 import './ControllerPurchase.css';
 
 export default function ControllerPurchase() {
@@ -28,14 +29,32 @@ export default function ControllerPurchase() {
         <button className="logo-button" onClick={handleBackToController}>
           <img src={logo} alt="לוגו" className="header-logo" />
         </button>
+        <div className="video-content">
+          <img src={video.titleSvgflat} alt={video.label} className="video-title-header" />
+          
+        </div>
+        
         <div className="back-to-moment" onClick={handleBackToVideo}>
-          <span>חזור לרגע</span>
           <img src={backArrow} alt="back" className="arrow" />
+          <span>חזור לרגע</span>
         </div>
       </div>
+      <div className="video-description">
+            <span>{video.description?.typeOfWine}</span>
+            <img src={descrEllipse} alt="•" className="separator-dot" />
+            <span>₪{video.price}</span>
+          </div>
       <div className="purchase-content">
+        <video
+          src={video.generalCheckoutVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="checkout-video"
+        />
         <img src={video.qrCode} alt="QR Code" className="qr-code" />
-        <p>לרכישה סרקו את הברקוד</p>
+        <p className="purchase-text">לרכישה סרקו את הברקוד</p>
       </div>
     </div>
   );

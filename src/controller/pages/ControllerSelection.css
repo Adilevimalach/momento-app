@@ -4,34 +4,55 @@
   min-height: 100vh;
   padding: 40px;
   direction: rtl;
-  font-family: 'Heebo', sans-serif;
+  position: relative;
+}
+
+.selection-logo {
+  position: absolute;
+  top: 34.3px;
+  right: 35.1px;
+  width: 36.164px;
+  height: 28.062px;
 }
 
 .selection-header {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
   text-align: center;
-  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #FFFFFF;
 }
 
-.selection-header h1 {
-  font-size: 48px;
-  font-weight: 300;
-  margin-bottom: 20px;
-  color: #fff;
+.header-line-one {
+  font-family: 'Leon', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 105%;
+  letter-spacing: 0.6px;
+  margin: 0;
 }
 
-.selection-header p {
-  font-size: 18px;
-  color: #ccc;
+.header-line-two {
+  font-family: 'ArbelHagilda';
+  transform: translateY(3px);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 105%;
   margin: 0;
 }
 
 .video-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 1200px;
-  height: 70vh;
+  gap: 0px 220px;
+  max-width: 900px;
+  height: 65vh;
   margin: 0 auto;
+  padding-top: 75px;
 }
 
 .video-option {
@@ -48,18 +69,18 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
-  margin-bottom: 20px;
 }
 
 .option-video {
   width: 50%;
   object-fit: cover;
   border-radius: 8px;
+  
 }
 
 .video-overlay {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 42px;
 }
 
 .video-title {
@@ -76,27 +97,19 @@
   .video-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px 30px;
-    padding: 20px;
+    padding: 120px 20px 20px;
   }
 
-  .selection-header {
-    margin-bottom: 60px;
+  .header-line-one {
+    font-size: 18px;
   }
 
-  .selection-header h1 {
-    font-size: 36px;
-  }
-
-  .selection-header p {
-    font-size: 16px;
-  }
-
-  .video-option {
-    padding: 30px 15px;
+  .header-line-two {
+    font-size: 32px;
   }
 
   .video-title {
-    max-width: 150px;
+    max-width: 120px;
   }
 }
 
@@ -106,7 +119,29 @@
     gap: 30px;
   }
 
-  .selection-header h1 {
+  .header-line-two {
     font-size: 28px;
   }
+}
+
+.random-video-button{
+  position: absolute;
+  bottom: 200px;
+  left: 40%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  width: 240px;
+  height: 59px;
+  flex-shrink: 0;
+
+  border-radius: 100px;
+  border: 1px solid #000;
+  background: #121010;
+  box-shadow: 0px 2px 2.4px 1px #000, 0px -1px 4.4px 1px rgba(255, 255, 255, 0.40);
+  backdrop-filter: blur(2px);
+  
 }

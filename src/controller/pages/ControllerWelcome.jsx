@@ -1,156 +1,138 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import welcome1 from '../../assets/IPAD/first page/welcome1.png';
-import welcome2 from '../../assets/IPAD/first page/welcome 2.png';
-import logo from '../../assets/logo.svg';
-import './ControllerWelcome.css';
 
-const IMAGES = [welcome1, welcome2];
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import './ControllerWelcome.css';
+import client from '../../utils/mqttClient';
+
+import playButtonIcon from '../../assets/IPAD/first page/begin button.svg';
+
+const wordToAnimate = "moprnsq";
+const letters = wordToAnimate.split('');
+const animationInterval = 300;
+const pauseWhenFaded = 2000;
+const pauseWhenFull = 2000;
 
 export default function ControllerWelcome() {
   const navigate = useNavigate();
-  const [index, setIndex] = useState(0);
-  const [sliderValue, setSliderValue] = useState(13);
-  const [isDragging, setIsDragging] = useState(false);
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [opacities, setOpacities] = useState(Array(letters.length).fill(1));
+  const [isExiting, setIsExiting] = useState(false);
 
-  // Simple image carousel effect
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % IMAGES.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
+  useEffect(() => {
+    if (isExiting) return;
+    
+    let loopTimeout;
 
-  // Detect fullscreen changes
-  React.useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
+    const runAnimationCycle = () => {
+      for (let i = 0; i < letters.length; i++) {
+        setTimeout(() => {
+          setOpacities(current => {
+            const newOpacities = [...current];
+            newOpacities[letters.length - 1 - i] = 0;
+            return newOpacities;
+          });
+        }, i * animationInterval);
+      }
+
+      const fadeOutDuration = letters.length * animationInterval;
+      setTimeout(() => {
+        for (let i = 0; i < letters.length; i++) {
+          const letterIndexToFade = letters.length - 1 - i;
+          if (letterIndexToFade === 5) continue;
+          setTimeout(() => {
+            setOpacities(current => {
+              const newOpacities = [...current];
+              newOpacities[i] = 1;
+              return newOpacities;
+            });
+          }, i * animationInterval);
+        }
+      }, fadeOutDuration + pauseWhenFaded);
+      
+      const fadeInDuration = letters.length * animationInterval;
+      const totalCycleTime = fadeOutDuration + pauseWhenFaded + fadeInDuration + pauseWhenFull;
+      loopTimeout = setTimeout(runAnimationCycle, totalCycleTime);
     };
 
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
-  }, []);
+    runAnimationCycle();
 
-  const enterFullscreen = () => {
-    const el = document.documentElement;
-    if (el.requestFullscreen) el.requestFullscreen();
+    return () => clearTimeout(loopTimeout);
+  }, [isExiting]);
+
+  const goToNextPage = () => {
+    console.log('Start button clicked. Publishing MQTT commands...');
+    const pcTopic = 'pc/commands';
+    const pcPayload = JSON.stringify({ action: 'start_session' });
+
+    const espTopic = 'esp32/commands';
+    const espPayload = 'START_ALL';
+
+    if (client && client.connected) {
+      client.publish(pcTopic, pcPayload, (error) => {
+        if (error) {
+          console.error('Failed to publish to PC topic:', error);
+        } else {
+          console.log(`Successfully published to ${pcTopic}`);
+        }
+      });
+      client.publish(espTopic, espPayload, (error) => {
+        if (error) {
+          console.error('Failed to publish to ESP32 topic:', error);
+        } else {
+          console.log(`Successfully published to ${espTopic}`);
+        }
+      });
+  } else {
+    console.error('MQTT client not connected. Cannot send commands.');
+  }
+
+    setIsExiting(true);
+    setOpacities(Array(letters.length).fill(1));
+    navigate('/controller/next');
   };
 
-
-  const handleDragStart = (e) => {
-    e.preventDefault();
-    setIsDragging(true);
-  };
-
-  const handleDragEnd = () => {
-    if (isDragging) {
-      if (sliderValue < 95) {
-        setSliderValue(13); // Snap back if not fully slid
-      }
-      setIsDragging(false);
+  const pageVariants = {
+    initial: {
+      opacity: 0
+    },
+    animate: {
+      opacity: 1,
+      transition: { duration: 2 }
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.5, delay: 1.8 }
     }
   };
-
-  // Add global event listeners for mouse events
-  React.useEffect(() => {
-    const handleGlobalMouseMove = (e) => {
-      if (!isDragging) return;
-      e.preventDefault();
-
-      const sliderContainer = document.querySelector('.slider');
-      if (!sliderContainer) return;
-
-      const sliderRect = sliderContainer.getBoundingClientRect();
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-
-      // Calculate position from right side (RTL)
-      let newValue = ((sliderRect.right - clientX) / sliderRect.width) * 100;
-
-      if (newValue < 0) newValue = 0;
-      if (newValue > 100) newValue = 100;
-
-      setSliderValue(newValue);
-
-      if (newValue >= 95) { // Threshold to navigate (when dragged to left)
-        navigate('/controller/next');
-      }
-    };
-
-    const handleGlobalMouseUp = () => handleDragEnd();
-
-    if (isDragging) {
-      document.addEventListener('mousemove', handleGlobalMouseMove);
-      document.addEventListener('mouseup', handleGlobalMouseUp);
-      document.addEventListener('touchmove', handleGlobalMouseMove, { passive: false });
-      document.addEventListener('touchend', handleGlobalMouseUp);
-    }
-
-    return () => {
-      document.removeEventListener('mousemove', handleGlobalMouseMove);
-      document.removeEventListener('mouseup', handleGlobalMouseUp);
-      document.removeEventListener('touchmove', handleGlobalMouseMove);
-      document.removeEventListener('touchend', handleGlobalMouseUp);
-    };
-  }, [isDragging, sliderValue, navigate]);
 
   return (
-    <div className="controller-welcome-root">
-      <div className="controller-welcome-img-container">
-        {IMAGES.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt="ברוכות הבאות"
-            className={`controller-welcome-img${i === index ? ' active' : ''}`}
-            style={{ position: 'absolute', top: 0, left: 0, transition: 'opacity 1s', opacity: i === index ? 1 : 0, width: '100%', height: 'auto' }}
-          />
-        ))}
-      </div>
-
-      <div className="controller-welcome-bottom">
-        <div className="welcome-text-container">
-          <h2>למרכז הרגעים של</h2>
-          <div className="logo-container">
-            <img src={logo} alt="Momento Logo" className="logo" />
-          </div>
-        </div>
-
-        <div className="slider-container">
-          <div className="slider">
-            <div
-              className={`slider-handle${isDragging ? ' dragging' : ''}`}
-              style={{ right: `${sliderValue}%` }}
-              onMouseDown={handleDragStart}
-              onTouchStart={handleDragStart}
-            ></div>
-            <div className="slider-track">
-              <span>כניסה</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Toggle fullscreen buttons based on current state */}
-      {!isFullscreen ? (
-        <button
-          className="fullscreen-btn"
-          onClick={enterFullscreen}
-          title="מסך מלא"
-        >
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="4" width="7" height="2" rx="1" fill="#fff"/>
-            <rect x="4" y="4" width="2" height="7" rx="1" fill="#fff"/>
-            <rect x="17" y="4" width="7" height="2" rx="1" fill="#fff"/>
-            <rect x="22" y="4" width="2" height="7" rx="1" fill="#fff"/>
-            <rect x="4" y="22" width="7" height="2" rx="1" fill="#fff"/>
-            <rect x="4" y="17" width="2" height="7" rx="1" fill="#fff"/>
-            <rect x="17" y="22" width="7" height="2" rx="1" fill="#fff"/>
-            <rect x="22" y="17" width="2" height="7" rx="1" fill="#fff"/>
-          </svg>
+    <motion.div 
+      className="controller-welcome-new-container"
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
+      <div className="media-wrapper">
+        <h1 className="welcome-title">
+          {letters.map((char, index) => (
+            <span 
+              key={index} 
+              className={index === 3 ? 'pulsing-letter' : ''}
+              style={{ opacity: opacities[index] }}
+            >
+              {char}
+            </span>
+          ))}
+        </h1>
+        
+        <button className="play-button" onClick={goToNextPage} aria-label="Start">
+          <img src={playButtonIcon} alt="Play Icon" />
         </button>
-      ) : null}
-    </div>
+      </div>
+
+      <p className="instruction-text">לחצו על העיגול כדי להתחיל</p>
+      
+    </motion.div>
   );
 }
-

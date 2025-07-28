@@ -2,14 +2,13 @@ import React, { useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getVideoById, getWineDetail } from '../constants/videos';
 import arrow from '../assets/arrow.svg';
-import cartIcon from '../assets/buttons/cart-icon.svg';
-import addToCartIcon from '../assets/buttons/add to card1.svg';
 import addToCartIconConfirmed from '../assets/buttons/add to card2.svg';
 import '../styles/Category.css';
 import { addToCart } from '../utils/cart';
 
 export default function Category() {
   const [showContent, setShowContent] = React.useState(false);
+  const [relatedVideos, setRelatedVideos] = React.useState([]);
 
   React.useEffect(() => {
     const timer = setTimeout(() => setShowContent(true), 1200);
@@ -32,6 +31,24 @@ export default function Category() {
       setShowConfirmation(false);
     }, 1000);
   };
+   // Get and set the related videos
+  React.useEffect(() => {
+    // 1. All possible video IDs
+    const allVideoIds = ['rain', 'shranim', 'avirot', 'mishpachti', 'shamesh', 'shkira'];
+
+    // 2. Filter out the current video's ID
+    const availableIds = allVideoIds.filter(id => id !== categoryId);
+
+    // 3. Shuffle the remaining IDs and pick the first two
+    const shuffled = availableIds.sort(() => 0.5 - Math.random());
+    const selectedIds = shuffled.slice(0, 2);
+
+    // 4. Get the full video objects using the provided function
+    const selectedVideos = selectedIds.map(id => getVideoById(id));
+
+    // 5. Set the state
+    setRelatedVideos(selectedVideos);
+  }, [categoryId]); // This effect runs when the categoryId changes
 
   React.useEffect(() => {
     return () => {
@@ -73,13 +90,15 @@ export default function Category() {
     <div className="category-container" style={{
       maxWidth: '1200px',
       margin: '0 auto',
-      padding: '20px',
-      fontFamily: 'ContentFont, sans-serif',
+      paddingTop: '0px',
+      fontFamily: 'ContentFont',
       direction: 'rtl',
       color: 'white',
       textAlign: 'center',
       position: 'relative'
+      
     }}>
+      
       <div className="video-container">
         <video
           src={video.pageVideo}
@@ -95,23 +114,27 @@ export default function Category() {
         />
         {showContent && (
           <>
-            {/* Cart Button */}
-            <img
-              src={cartIcon}
-              alt="Cart"
-              className="cart-button"
-              onClick={() => navigate('/cart')}
-            />
-
+            
             {/* Add to Cart Button */}
-            <img
-              src={showConfirmation ? addToCartIconConfirmed : video.priceSvg}
-              alt={showConfirmation ? 'Added to Cart' : 'Add to Cart'}
-              className={`add-to-cart-button${showConfirmation ? ' confirmed' : ''}`}
-              onClick={handleAddToCart}
-              style={{ transition: 'opacity 0.3s' }}
-            />
+            <div className="purchase-container">
+              {showConfirmation ? (
+                <img
+                  src={addToCartIconConfirmed}
+                  alt="Added to Cart"
+                  className="purchase-button confirmed"
+                />
+              ) : (
+                <button className="purchase-button" onClick={handleAddToCart}>
+                  <span className="purchase-text-buy">add to cart</span>
+                  <span className="purchase-text-price">₪{video.price}</span>
+                </button>
+              )}
 
+              <div className="purchase-texts">
+                {video.text1 && <p>{video.text1}</p>}
+                {video.text2 && <p>{video.text2}</p>}
+              </div>
+            </div>
             <img
               src={arrow}
               alt="Scroll down"
@@ -145,10 +168,24 @@ export default function Category() {
                   alignItems: 'center',
                   padding: '20px 10px'
                 }}>
+                  <h3 style={{
+                    margin: '0 0 8px 0',
+                    fontSize: '30px',
+                    fontFamily: 'Leon',
+                    color: 'white',
+                    textAlign: 'center',
+                    fontStyle: 'normal',
+                    fontWeight: 400,
+                    lineHeight: '150%',
+                    letterSpacing: '0.9px'
+}}>
+                    
+                    {detail.title}
+                  </h3>
                   <div style={{
                     width: '80px',
                     height: '80px',
-                    marginBottom: '15px',
+                    marginBottom: '20px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'
@@ -168,31 +205,49 @@ export default function Category() {
                       aria-label={detail.title}
                     />
                   </div>
-                  <h3 style={{
-                    margin: '0 0 8px 0',
-                    fontSize: '18px',
-                    fontFamily: 'HeaderFont, sans-serif',
-                    color: 'white',
-                    textAlign: 'center'
-                  }}>
-                    {detail.title}
-                  </h3>
+                  
                   <p style={{
                     margin: 0,
                     fontSize: '16px',
                     lineHeight: '1.4',
                     color: '#e0e0e0',
                     textAlign: 'center',
+                  
                     minHeight: '40px',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    marginBottom: '20px',
                   }}>
                     {video.description[detailId]}
                   </p>
                 </div>
               );
             })}
+
+            <div className="related-products-section">
+                <h2 className="related-products-title">עשוי לעניין אותך</h2>
+                <div className="related-products-grid">
+                  {relatedVideos.map((video) => (
+                    <div key={video.id} className="related-product-item" onClick={() => navigate(`/${video.id}`)}>
+                      <video
+                        src={video.checkoutVideo}
+                        className="related-product-video"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                      
+                      <h3>{video.label}</h3>
+                      <p>
+                        {video.text1}
+                        {video.text2 && <><br />{video.tƒext2}</>}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             <div className="arrow-up-container">
               <img
                 src={arrow}

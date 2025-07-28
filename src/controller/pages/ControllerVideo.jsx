@@ -1,11 +1,14 @@
+
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getVideoById, getWineDetail } from '../../constants/videos';
+import { getVideoById, getWineDetail, getVideoOptionsLength, getVideoByIndex, getVideoIndexById } from '../../constants/videos';
 import arrow from '../../assets/arrow.svg';
 import logo from '../../assets/IPAD/logo m/m ipad.svg';
-import backArrow from '../../assets/IPAD/back-arrow.svg';
+import backArrow from '../../assets/nextMoment.svg';
+import descrEllipse from '../../assets/descrEllipse.svg';
+import { motion } from 'framer-motion';
+
 import './ControllerVideo.css';
-import purchaseButton from '../../assets/IPAD/TO_PURCASE.svg';
 
 export default function ControllerVideo() {
   const { videoId } = useParams();
@@ -17,8 +20,15 @@ export default function ControllerVideo() {
     navigate('/controller');
   };
 
-  const handleBackToSelection = () => {
-    navigate('/controller/selection');
+  const handleNextMoment = () => {
+    const currentIndex = getVideoIndexById(videoId);
+    const totalVideos = getVideoOptionsLength();
+    const nextIndex = (currentIndex + 1) % totalVideos;
+    const nextVideo = getVideoByIndex(nextIndex);
+
+    if (nextVideo) {
+      navigate(`/controller/video/${nextVideo.id}`);
+    }
   };
 
   const handleShowWineDetails = () => {
@@ -46,29 +56,38 @@ export default function ControllerVideo() {
   }
 
   return (
-    <div className="controller-video-root">
+    <motion.div
+      className="controller-video-root"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 3 } }}
+      exit={{ opacity: 0, transition: { duration: 0 } }}
+    >
       <div className="video-header">
         <button className="logo-button" onClick={handleBackToController}>
           <img src={logo} alt="לוגו" className="header-logo" />
         </button>
-        <img src={video.titleSvg} alt={video.label} className="video-title-header" />
-        <div className="not-your-moment" onClick={handleBackToSelection}>
-          <span>לא הרגע שלך?</span>
+        <img src={video.titleSvgflat} alt={video.label} className="video-title-header" />
+        <div className="not-your-moment" onClick={handleNextMoment}>
+          <span>לרגע הבא</span>
           <img src={backArrow} alt="back" className="arrow" />
         </div>
       </div>
-
+      <div className="video-description-header">
+        {video.text2 ? (
+          <>
+            <span>{video.text1}</span>
+            <img src={descrEllipse} alt="•" className="separator-dot" />
+            <span>{video.text2}</span>
+          </>
+        ) : (
+          <span>{video.text1}</span>
+        )}
+      </div>
       {!showWineDetails ? (
         <div className="video-content">
-          <div className="video-description">
-            <p>רגע שנוצר, סיכום של יום</p>
-            <p>כמו נטיפה אדומה ומשוחררת</p>
-          </div>
-
           <button className="details-button" onClick={handleShowWineDetails}>
             <img src={arrow} alt="פרטים" className="details-arrow" />
           </button>
-
           <div className="main-video-container">
             <video
               src={video.ipadVideo}
@@ -82,13 +101,7 @@ export default function ControllerVideo() {
         </div>
       ) : (
         <div className="wine-details-content">
-          <div className="video-description">
-            <p>רגע שנוצר, סיכום של יום</p>
-            <p>כמו נטיפה אדומה ומשוחררת</p>
-          </div>
-
           <div className="wine-details-grid">
-            {/* Top row */}
             {wineDetails.slice(0, 3).map((detailId) => {
               const detail = getWineDetail(detailId);
               const detailValue = video.description[detailId];
@@ -103,24 +116,21 @@ export default function ControllerVideo() {
                       playsInline
                       className="detail-video"
                     />
-                    <h3 className="detail-title">{detail.title}</h3>
-                  </div>
-                  <div className="detail-text vertical">
-
-                    <p className="detail-description">{detailValue}</p>
+                    <div className="title-wrapper">
+                      <h3 className="detail-title-top">{detail.title}</h3>
+                      <p className="detail-description">{detailValue}</p>
+                    </div>
                   </div>
                 </div>
               );
             })}
-
             <div className="grid-separator"></div>
-
-            {/* Bottom rows */}
             {wineDetails.slice(3).map((detailId) => {
               const detail = getWineDetail(detailId);
               const detailValue = video.description[detailId];
               return (
                 <div key={detailId} className="wine-detail-item vertical">
+                  <h3 className="detail-title">{detail.title}</h3>
                   <div className="detail-video-container">
                     <video
                       src={detail.video}
@@ -131,21 +141,20 @@ export default function ControllerVideo() {
                       className="detail-video"
                     />
                   </div>
-                  <h3 className="detail-title">{detail.title}</h3>
-                  <p className="detail-description">{detailValue}</p>
+                  <p className="detail-description-botton">{detailValue}</p>
                 </div>
               );
             })}
           </div>
-
           <button className="back-to-video" onClick={() => setShowWineDetails(false)}>
             <img src={arrow} alt="חזור" className="back-arrow-rotated" />
           </button>
         </div>
       )}
-      <div className="purchase-button" onClick={handlePurchase}>
-        <img src={purchaseButton} alt="רכישה" className="purchase-button-img" />
-      </div>
-    </div>
+      <button className="purchase-button" onClick={handlePurchase}>
+        <span className="purchase-text-buy">buy now</span>
+        <span className="purchase-text-price">₪{video.price}</span>
+      </button>
+    </motion.div>
   );
 }

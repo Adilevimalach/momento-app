@@ -1,84 +1,388 @@
-.about-container {
+ /* .about-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: calc(100vh - 240px); /* Account for header height */
-  padding: 2rem;
-  background-color: #0D0D0D;
+  min-height: calc(100vh - 240px);
+  background-color: #121010;
   color: white;
   text-align: center;
 }
 
-.about-content {
-  width: 63vw;
+.about-container {
+  padding: 20px;
+}
+
+
+.bottle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+}
+.shop-now-button-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background-color: rgba(18, 16, 16, 0.53); 
+  filter: drop-shadow(0 -1px 4.4px rgba(255, 255, 255, 0.40)) drop-shadow(0 2px 2.4px #000);
+  backdrop-filter: blur(2px); 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%; 
+  color: white;
+  font-family: 'ArbelHagilda';
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10; 
+}
+
+.bottle-item video {
+  width: 126.81px;
+  height: 284.47px;
+  object-fit: cover;
+}
+
+ 
+.dotted-separator {
+  width: 90%; 
+  height: 8px;
+  margin: 30px 0; 
+  margin-bottom: 70px;
+  
+  background-image: url('/src/assets/wineElip.svg'); 
+  background-position: center;
+  background-size: 25px 100%; 
+  
+}
+
+.scroll-down-arrow-about {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px; 
+}
+
+.scroll-down-arrow-about img {
   display: flex;
-  font-size: 1rem;
+  width: 40px;
+  height: 47px;
+  transform: rotate(-90deg);
+  padding: 6.068px 10.25px 6.067px 10.25px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.about-headline-container{
+  margin-bottom: 80px;
+}
+
+.text-box .text-content {
+  width: 311.535px;
+height: 168px;
+flex-shrink: 0;
+color: #FFF;
+text-align: center;
+font-family: Leon;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%;
+letter-spacing: 0.48px;
+}
+
+.catalog-button-text {
+  color: #FFF;
+  text-align: center;
+  font-family: ArbelHagilda;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; 
+  letter-spacing: 0.54px;
+}
+
+@media (min-width: 768px) {
+  .shop-header {
+    width: 100%; 
+    max-width: none; 
+    margin: 0;
+    border-radius: 0; 
+    padding: 10px 50px;
+  }
+}
+ */
+.about-container {
+  /* --- איחדתי כאן שני כללים שהיו כפולים --- */
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-}
-
-.about-text {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  text-align: right;
-  direction: rtl;
-}
-
-.about-content h2 {
-  font-size: 1.5rem;
-}
-.about-text p {
-  margin-bottom: 1.5rem;
-}
-
-.catalog-button {
-  cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s;
-  display: inline-block; /* To contain the image properly */
-}
-
-.catalog-button:active {
-  transform: translateY(2px);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-.catalog-button img {
-  display: block; /* Remove any extra space below the image */
-  max-width: 100%;
-  height: auto;
-}
-
-.about-description {
-  margin: 2rem 0;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  direction: rtl;
-  max-width: 800px;
-  width: 100%;
-  padding: 0 1rem;
-}
-
-.contact-info {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin: 2rem 0;
+  justify-content: flex-start;
+  min-height: calc(100vh - 240px);
+  background-color: #121010;
+  color: white;
   text-align: center;
-  direction: rtl;
+  padding: 20px;
 }
-.text-box .text-content {
-  width: 63vw;
-  margin-bottom: 4rem;
-}
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .about-container {
-    padding: 1rem;
-  }
 
-  .about-text {
-    font-size: 1rem;
+.bottle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+.shop-now-button-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background-color: rgba(18, 16, 16, 0.53); 
+  filter: drop-shadow(0 -1px 4.4px rgba(255, 255, 255, 0.40)) drop-shadow(0 2px 2.4px #000);
+  backdrop-filter: blur(2px); 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%; 
+  color: white;
+  font-family: 'ArbelHagilda';
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10; 
+}
+
+.bottle-item video {
+  width: 126.81px;
+  height: 284.47px;
+  object-fit: cover;
+}
+ 
+.dotted-separator {
+  width: 90%; 
+  height: 8px;
+  margin: 30px 0; 
+  margin-bottom: 70px;
+  background-image: url('/src/assets/wineElip.svg'); 
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 25px 100%; 
+}
+
+.scroll-down-arrow-about {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px; 
+}
+
+.scroll-down-arrow-about img {
+  display: flex;
+  width: 40px;
+  height: 47px;
+  transform: rotate(-90deg);
+  padding: 6.068px 10.25px 6.067px 10.25px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.about-headline-container {
+  margin-bottom: 80px;
+}
+
+.text-box .text-content {
+  width: 311.535px;
+  height: 168px;
+  flex-shrink: 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Leon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.48px;
+}
+
+
+.momento-catalog-button {
+  width: 205.949px;
+  height: 40.042px;
+  border-radius: 100px;
+  background: #121010;
+  box-shadow: 0 2px 2.4px 1px #000, 0 -1px 4.4px 1px rgba(255, 255, 255, 0.40);
+  backdrop-filter: blur(2px);
+  
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  margin: 80px auto 0; 
+}
+
+
+.momento-catalog-button-text {
+  color: #FFF;
+  text-align: center;
+  font-family: ArbelHagilda;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.54px;
+}
+
+
+
+@media (min-width: 768px) {
+  .shop-header {
+    width: 100%; 
+    max-width: none; 
+    margin: 0;
+    border-radius: 0; 
+    padding: 10px 50px;
   }
+}
+
+/* Main signup form container */
+.signup-form-container {
+  /* width: 402.88px; */
+  height: 629.694px;
+  
+  background: #DFDED0;
+  box-shadow: 0 8px 11.5px 6px #000;
+  margin-top: 60px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Headline section */
+.signup-headline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.signup-headline h2 {
+  color: #000;
+  text-align: right;
+  font-family: Leon;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.6px;
+  margin: 0;
+}
+
+.heart-icon {
+  width: 22.699px;
+  height: 17.731px;
+}
+
+/* Input fields */
+.signup-input {
+  width: 364.299px;
+  height: 30.829px;
+  border-radius: 100px;
+  border: 1px solid #000;
+  background: #DFDED0;
+  margin-top: 10px;
+  text-align: right;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-family: ArbelHagilda;
+  font-size: 14px;
+  margin: 20px;
+}
+
+/* Add margin to the first input */
+.signup-input[type="email"] {
+  margin-top: 30px;
+}
+
+/* Checkbox section */
+.signup-checkbox-row {
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 30px;
+  cursor: pointer;
+  direction: rtl;
+  padding: 0 10px;
+  transform: translateX(25px);
+}
+
+.signup-checkbox-row span {
+  color: #121010;
+  font-family: ArbelHagilda;
+  font-size: 13px;
+  line-height: 150%;
+  letter-spacing: 0.39px;
+}
+
+.custom-checkbox {
+  width: 22.59px;
+  height: 22.59px;
+  border: 1px solid #000;
+  background-color: #DFDED0;
+  margin-left: 8px;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+  border-radius: 50%;
+}
+
+.custom-checkbox.checked {
+  background-color: #000;
+}
+
+/* Submit button */
+.signup-submit-button {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #121010;
+  color: #DFDED0;
+  border: none;
+  font-family: Leon;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: auto; /* Pushes the button to the bottom */
+}
+
+.scroll-to-top-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px; 
+  margin-bottom: 20px;
+}
+
+.scroll-to-top-button img {
+  width: 40px;
+  height: auto;
+  transform: rotate(90deg); 
+}
+.checkbox-label {
+  position: relative;
+  
+}
+.dots-underline {
+  position: absolute;
+  bottom: 3px;
+  left: 7px;
 }

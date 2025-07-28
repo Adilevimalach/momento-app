@@ -1,197 +1,85 @@
-.controller-welcome-root {
+/*
+  Defines the main container for the welcome screen.
+*/
+.controller-welcome-new-container {
   display: flex;
-  flex-direction: column;
+ 
+  flex-direction: column; 
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  min-height: 100vh;
-  background: #000;
-  color: white;
-  font-family: system-ui, -apple-system, sans-serif;
+  aspect-ratio: 199/139;
+  background-color: #000;
+}
+
+.media-wrapper {
+  position: relative;
+  transform: translateY(40%);
+}
+
+.welcome-title{
+  font-family: Momento;
+  transform: translateY(-215px);
+  width: 1087.443px;
+  height: 211px;
+  flex-shrink: 0;
+  color: #FAF6F3;
   text-align: center;
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-}
-
-.controller-welcome-img-container {
-  width: 65vw;
-  height: 25vh;
-  margin-top: 20vh;
-  position: relative;
-  overflow: hidden;
-}
-
-.controller-welcome-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.controller-welcome-bottom {
-  width: 100%;
-  padding: 2rem;
-  margin-bottom: 20vh;
-  background: rgba(0, 0, 0, 0.85);
+  font-size: 202px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 105%;
+  letter-spacing: 6.06px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 2;
-}
-
-.welcome-text-container {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 2rem;
-  direction: rtl;
 }
 
-h2 {
-  font-size: 1.2rem;
-  margin: 0;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
-  margin-left: 0.5rem;
+.welcome-title span {
+  transition: opacity 2s ease-in-out;
 }
 
-.logo-container {
-  display: inline-block;
-}
-
-.logo {
-  height: 260px;
-  width: 180px;
-  object-fit: cover;
-  vertical-align: middle;
-}
-
-.slider-container {
-  max-width: 300px;
-  width: 100%;
-  margin-top: 2rem;
-}
-
-.slider {
-  background: #333;
-  border-radius: 50px;
-  height: 60px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  position: absolute;
-  bottom: 10vh;
+.play-button {
+ position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 20vw;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-.slider:hover {
-  transform: translateY(-2px);
-}
-
-.slider:active {
-  transform: translateY(0);
-}
-
-.slider-track {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.slider-track span {
-  font-size: 2.2rem;
-  color: #fff;
-  font-weight: 500;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  user-select: none;
-}
-
-.slider-handle {
-  background: #fff;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  transform: translateX(50%);
-  transition: all 0.1s ease-out;
-  cursor: grab;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  touch-action: none;
-  user-select: none;
-}
-
-.slider-handle.dragging {
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
-  cursor: grabbing;
-}
-
-.slider-arrow {
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 8px solid #333;
-  transform: rotate(180deg);
-}
-
-.slider:hover .slider-handle {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-.fullscreen-btn {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-258%, -210%);
+  width: 127.80px;
+  height: 127.80px;
+  background: transparent;
   border: none;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
   cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-  z-index: 10;
+  animation: fade-pulse 4s ease-in-out infinite;
 }
 
-.fullscreen-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
+.play-button img {
+  width: 100%;
+  height: 100%;
 }
 
-.fullscreen-btn:active {
-  transform: scale(0.95);
+/*
+  Styles for the instruction text.
+*/
+.instruction-text {
+  font-family: Leon;
+  color: #fff;
+  font-size: 16x;
+  transform: translate(-270px, -730%);
 }
 
-.exit-fullscreen-btn {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
 
-.exit-fullscreen-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+@keyframes fade-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }
+/* Base styles for the title remain the same */
+
+
+/* This is the new crucial part for smooth animation */

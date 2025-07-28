@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getVideoById } from '../../constants/videos';
+import selectionLogo from '../../assets/selectionLogo.svg';
 import './ControllerLoading.css';
 
 export default function ControllerLoading() {
@@ -12,8 +14,8 @@ export default function ControllerLoading() {
   useEffect(() => {
     if (!video) return;
 
-    const duration = video.videoTime * 1000; // Convert to milliseconds
-    const interval = 50; // Update every 50ms for smooth animation
+    const duration = video.videoTime * 1000;
+    const interval = 50;
     const increment = (100 / duration) * interval;
 
     const timer = setInterval(() => {
@@ -21,7 +23,6 @@ export default function ControllerLoading() {
         const newProgress = prev + increment;
         if (newProgress >= 100) {
           clearInterval(timer);
-          // Navigate to video page after loading completes
           setTimeout(() => {
             navigate(`/controller/video/${videoId}`);
           }, 200);
@@ -38,24 +39,26 @@ export default function ControllerLoading() {
     return <div>Video not found</div>;
   }
 
-  // Create dots for the loading animation
-  const totalDots = 24; // Number of dots in the circle
+  const totalDots = 24;
   const filledDots = Math.floor((progress / 100) * totalDots);
 
   return (
     <div className="controller-loading-root">
-      <div className="loading-content">
-        <h2>טעינה בזמן שהסרטון מוקרן</h2>
-
-        <div className="loading-line">
-          {Array.from({ length: totalDots }, (_, index) => (
-            <div
-              key={index}
-              className={`loading-dot ${index < filledDots ? 'filled' : ''}`}
-            />
-          ))}
+      <header className="loading-header">
+        <div className="header-right">
+          <img src={selectionLogo} alt="Momento Logo" />
         </div>
-
+        <div className="header-center">
+          <img src={video.titleSvgflat} alt="Video Title" />
+        </div>
+      </header>
+      <div className="loading-line">
+        {Array.from({ length: totalDots }, (_, index) => (
+          <div
+            key={index}
+            className={`loading-dot ${index < filledDots ? 'filled' : ''}`}
+          />
+        ))}
       </div>
     </div>
   );

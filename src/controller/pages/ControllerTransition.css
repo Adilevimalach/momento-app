@@ -1,49 +1,54 @@
-.controller-transition-root {
+.transition-page-container {
   display: flex;
-  align-items: center;
+  width: 1194px;
+  height: 834px;
   justify-content: center;
-  min-height: 100vh;
-  background: #000;
-  color: white;
-  font-family: system-ui, -apple-system, sans-serif;
-  text-align: center;
+  align-items: center;
+  background-color: #000;
+  position: relative;
   overflow: hidden;
+  opacity: 1;
 }
 
-.transition-content {
+
+
+.transition-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Updated styles for the arrow's container button */
+.down-arrow {
+  position: absolute;
+  /* Correction: Moved up from the bottom */
+  bottom: 115px; 
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* New dimensions based on the icon's container from Figma */
+  width: 78px;
+  height: 76px;
+
+  /* Centering the SVG inside the button */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-}
+  align-items: center;
 
-.transition-text-img {
-  max-width: 80vw;
-  height: auto;
-  margin-bottom: 4rem;
-}
-
-.begin-button {
-  background: none;
+  /* Style resets */
+  background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
-  opacity: 0;
-  animation: fadeIn 1s forwards;
+  box-sizing: border-box;
 }
 
-.begin-button img {
-  width: 200px;
-  height: 200px;
-}
-
-.begin-button-placeholder {
-  width: 200px;
-  height: 200px;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+.down-arrow svg {
+  /* Dimensions you provided */
+  width: 36.75px;
+  height: 20.028px;
+  flex-shrink: 0;
+  
+  /* Correction: Rotated 90 degrees clockwise to point down */
+  transform: rotate(0deg);
 }

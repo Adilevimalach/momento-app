@@ -1,3 +1,4 @@
+
 .controller-loading-root {
   min-height: 100vh;
   background: #000;
@@ -8,20 +9,7 @@
   justify-content: center;
   text-align: center;
   direction: rtl;
-}
-
-.loading-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-}
-
-.loading-content h2 {
-  font-size: 1.8rem;
-  font-weight: 300;
-  margin: 0;
-  color: #f0c674;
+  position: relative;
 }
 
 .loading-line {
@@ -29,6 +17,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transform: translateY(-50px);
 }
 
 .loading-dot {
@@ -43,12 +32,27 @@
   background: white;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
-
-.loading-text {
-  color: #666;
-  font-size: 1rem;
+.loading-header .header-right {
+  position: absolute;
+  top: 35px;
+  right: 35px;
 }
 
-.loading-text p {
-  margin: 0;
+.loading-header .header-left img {
+  width: 36.074px;
+  height: 28.062px;
+  flex-shrink: 0;
+}
+
+.loading-header .header-center {
+  position: absolute;
+  top: 37.64px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.loading-header .header-center img {
+  width: 189.728px;
+  height: 30px;
+  flex-shrink: 0;
 }
