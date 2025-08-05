@@ -5,6 +5,16 @@ import { getVideoById } from '../../constants/videos';
 import selectionLogo from '../../assets/selectionLogo.svg';
 import './ControllerLoading.css';
 
+
+const PLAY_MS = { 
+  rain: 33000, 
+  avirot: 36000, 
+  mishpachti: 34000, 
+  shamesh: 34000, 
+  shkira: 38000, 
+  shranim: 34000 
+};
+
 export default function ControllerLoading() {
   const { videoId } = useParams();
   const navigate = useNavigate();
@@ -14,7 +24,8 @@ export default function ControllerLoading() {
   useEffect(() => {
     if (!video) return;
 
-    const duration = video.videoTime * 1000;
+    const duration = PLAY_MS[videoId] || 30000;
+    
     const interval = 50;
     const increment = (100 / duration) * interval;
 

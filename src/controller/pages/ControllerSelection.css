@@ -2,7 +2,6 @@
   background: #000;
   color: #fff;
   min-height: 100vh;
-  padding: 40px;
   direction: rtl;
   position: relative;
 }
@@ -17,8 +16,8 @@
 
 .selection-header {
   position: absolute;
-  top: 25px;
-  left: 0;
+  top: 43px;
+  left: -13px;
   right: 0;
   text-align: center;
   display: flex;
@@ -52,7 +51,7 @@
   max-width: 900px;
   height: 65vh;
   margin: 0 auto;
-  padding-top: 75px;
+  padding-top: 135px;
 }
 
 .video-option {
@@ -119,29 +118,27 @@
     gap: 30px;
   }
 
-  .header-line-two {
-    font-size: 28px;
-  }
+ 
 }
 
 .random-video-button{
   position: absolute;
   bottom: 200px;
   left: 40%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-
   width: 240px;
   height: 59px;
   flex-shrink: 0;
-
   border-radius: 100px;
   border: 1px solid #000;
   background: #121010;
   box-shadow: 0px 2px 2.4px 1px #000, 0px -1px 4.4px 1px rgba(255, 255, 255, 0.40);
   backdrop-filter: blur(2px);
-  
+  transform: translateY(85%);
+}
+
+.random-icon{
+  transform: translateX(-10px);
 }

@@ -48,7 +48,7 @@ const handlePrevious = () => {
               <video
                 src={o.mp4}
                 muted loop playsInline autoPlay
-                className="home-video"
+                className="home-video-new"
                 aria-label={o.label}
               />
               <span className="home-title">
@@ -68,7 +68,7 @@ const handlePrevious = () => {
               key={currentItem.id} 
               src={currentItem.mp4}
               muted loop playsInline autoPlay
-              className="home-video"
+              className="home-video-single"
               aria-label={currentItem.label}
             />
             <span className="home-title-single">

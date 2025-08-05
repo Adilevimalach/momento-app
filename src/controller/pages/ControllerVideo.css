@@ -2,7 +2,7 @@
   /* background: #000; */
   color: #fff;
   min-height: 100vh;
-  padding: 20px;
+  padding: 10px;
   direction: rtl;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
 
 .video-header {
   width: 100%;
-  padding: 0px 30px;
+  padding: 5px 10px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -22,13 +22,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  transform: translateY(-10px);
+ 
   font-size: 20px;
   font-family: ArbelHagilda;
 }
 
 .video-title-header {
-  transform: translate(-25px,-7px);
   width: 189.728px;
   height: 30px;
 }
@@ -37,9 +36,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(25px, -10px);  
+
   font-family: Leon;
   font-size: 16px;
+  margin-bottom: 20px;
   
 }
 .separator-dot{
@@ -52,23 +52,26 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transform: translate(20px, 0px);
+  /* transform: translate(20px, 0px); */
 }
 
  
 .main-video-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   aspect-ratio: 16/9;
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 40px;
+  
 }
 
 .main-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: translateY(-75px);
+  
 }
 
 .details-button {
@@ -114,7 +117,7 @@ text-align: center;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: 15px;
+  padding-top: 35px;
 }
  
 .grid-separator {
@@ -124,6 +127,9 @@ text-align: center;
   background-repeat: repeat-x;
   background-position: center;
   background-size: 28px 100%; 
+  margin-top: 20px;
+  width: 93%;
+transform: translateX(-35px);
 }
 
 .detail-video-container {
@@ -148,7 +154,6 @@ text-align: center;
 
 
 .detail-title {
-  /* transform: translateY(5px); */
   margin: -15px 0 5px 0px;
   font-size: 23px;
   color: white;
@@ -177,7 +182,7 @@ text-align: center;
 }
 
 .detail-description {
-  width: 189.314px;
+  width: 209.314px;
   height: 23px;
   margin: 0;
   transform: translateY(-10px);
@@ -187,7 +192,7 @@ text-align: center;
 }
 
 .detail-description-botton {
- width: 205.103px;
+ width: 235.103px;
   height: 23px;
   margin: 0;
   margin-top: -20px;
@@ -208,6 +213,10 @@ text-align: center;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.header-logo{
+  margin-top: -4;
 }
 
 .back-arrow-rotated {
@@ -274,12 +283,7 @@ text-align: center;
     gap: 30px;
   }
 
-  .video-header {
-    
-    padding: 20px;
-    padding-bottom: 0;
-    
-  }
+
 
   .video-header h1 {
     font-size: 1.5rem;
@@ -308,8 +312,8 @@ text-align: center;
  .purchase-button {
   position:absolute;
   left: 0;
-  margin-left: 40.56px;
-  bottom: 140px;
+  left: 41.56px;
+  bottom: 160px;
   width: 120px;
   height: 120px;
   border: 0.5px solid #000;

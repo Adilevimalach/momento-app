@@ -32,17 +32,14 @@ function ControllerTransition() {
   },
   exit: { 
     zIndex: 0, 
-    opacity: 0, 
-    transition: { duration: 0.5 } 
+    transition: { duration: 1.5 } 
+    // opacity: 0, 
+    // transition: { duration: 0.5 } 
   },
 };
 
   return (
-    // <motion.div
-    //   className="transition-page-container"
-    //   exit={{ zIndex: 0,opacity: 0, transition: { duration: 1 } }}
-      
-    // >
+   
     <motion.div
       className="transition-page-container"
       variants={pageVariants}

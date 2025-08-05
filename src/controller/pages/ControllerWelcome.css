@@ -61,10 +61,11 @@
   Styles for the instruction text.
 */
 .instruction-text {
-  font-family: Leon;
+  font-family: ArbelHagilda;
   color: #fff;
   font-size: 16x;
-  transform: translate(-270px, -800%);
+
+  transform: translate(-270px, -190px);
 }
 
 
