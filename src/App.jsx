@@ -23,7 +23,7 @@ export default function App() {
    const shouldHideHeader = location.pathname === '/' || location.pathname.startsWith('/controller') ||location.pathname.startsWith('/cart');
   
   const isController = location.pathname.startsWith('/controller');
-  console.log(location.pathname);
+
 
   return (
     <>

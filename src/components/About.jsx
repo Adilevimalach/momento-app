@@ -66,7 +66,7 @@ export default function About() {
 
     <div className="about-headline-container">
       
-      <span style={{ position: 'relative', left: '-15px' }}>
+      <span style={{ position: 'relative', left: '0px' }}>
         <img src={senLogo} alt="אנחנו מייצרים רגעים" className="headline-logo" />
       </span>
     </div>

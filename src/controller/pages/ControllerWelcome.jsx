@@ -61,20 +61,20 @@ export default function ControllerWelcome() {
 
   const goToNextPage = () => {
     console.log('Start button clicked. Publishing MQTT commands...');
-    const pcTopic = 'pc/commands';
-    const pcPayload = JSON.stringify({ action: 'start_session' });
+    // const pcTopic = 'pc/commands';
+    // const pcPayload = JSON.stringify({ action: 'start_session' });
 
     const espTopic = 'esp32/commands';
     const espPayload = 'START_ALL';
 
     if (client && client.connected) {
-      client.publish(pcTopic, pcPayload, (error) => {
-        if (error) {
-          console.error('Failed to publish to PC topic:', error);
-        } else {
-          console.log(`Successfully published to ${pcTopic}`);
-        }
-      });
+      // client.publish(pcTopic, pcPayload, (error) => {
+      //   if (error) {
+      //     console.error('Failed to publish to PC topic:', error);
+      //   } else {
+      //     console.log(`Successfully published to ${pcTopic}`);
+      //   }
+      // });
       client.publish(espTopic, espPayload, (error) => {
         if (error) {
           console.error('Failed to publish to ESP32 topic:', error);

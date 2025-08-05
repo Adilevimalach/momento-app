@@ -1,66 +1,16 @@
 .cart-page {
   min-height: calc(100vh - 240px);
-  padding-bottom:160px; 
 }
 
 .cart-container {
   max-width: 400px;
   margin: 0 auto;
+  padding-top: 20px;
 }
 
 .cart-empty {
   text-align: center;
   margin-top: 32px;
-}
-
-.cart-item {
-  display: flex;
-  align-items: stretch;
-  border-radius: 16px;
-  margin-bottom: 24px;
-  padding: 16px;
-}
-
-.cart-item-details {
-  flex: 1;
-  padding: 16px 0;
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-}
-
-
-.flex-grow {
-  flex-grow: 1;
-}
-
-.cart-item-label {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-
-.cart-remove-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  text-decoration: underline;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 300;
-  padding: 0;
-  width: fit-content;
-  margin: 0;
-}
-
-.cart-item-price {
-  margin-top: 8px;
-}
-
-.cart-item-qty {
-  margin-top: 8px;
-  font-size: 14px;
 }
 
 
@@ -70,22 +20,12 @@
   object-fit: cover;
   border-radius: 12px;
   background: black;
-
 }
 
-.cart-checkout-btn {
-  text-align: center;
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  border-radius: 30%;
-  transform: translateX(-50%);
-  background-color: #121010;
-}
+
 
 .cart-header {
   width: 100%;
-  position: sticky; 
   top: 0;
   left: 0;
   z-index: 100;
@@ -109,110 +49,127 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px; 
-  height: 65px;     
+  padding: 0 20px;
+  height: 65px;
   box-sizing: border-box;
 }
 
 .header-logo {
-  height: 35px; 
+  height: 30px;
   width: auto;
 }
 
-.cart-container {
-    padding-top: 20px; 
+.header-logo-left {
+  height: 25px;
+  width: auto;
 }
 
-
 .checkout-progress {
-  background-color: #121010; 
-  padding: 10px 10px;
+  padding: 15px 0px 0px 0;
   display: flex;
+  margin-bottom: -80px;
   flex-direction: column;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
+  box-shadow: inset 0 10px 15px -8px rgba(0, 0, 0, 0.5);
 }
 
 .progress-title {
   color: #FFF;
-text-align: center;
-font-family: Leon;
-font-size: 22px;
-font-style: normal;
-font-weight: 400;
-line-height: 150%; 
-letter-spacing: 0.66px;
-margin-bottom: -15px;
+  text-align: center;
+  font-family: Leon;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.66px;
+  margin-top: 2a0px;
 }
 
 .progress-steps {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px; 
+  gap: 8px;
+  margin-bottom: -10px;
+  direction: rtl;
 }
 
 .step {
-  color: #888; 
-  font-family: 'ArbelHagilda', sans-serif;
-  font-size: 14px;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  font-family: ArbelHagilda;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .step.active {
-  color: #FFF; 
-  font-weight: bold;
+  color: #FFF;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
-  background-color: #888; 
+  width: 6.385px;
+  height: 6.385px;
+  background-color: rgba(255, 255, 255, 0.35);
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .dot.active {
-  background-color: #FFF; 
+  background-color: #FFF;
 }
 
-
 .cart-content {
-  padding: 20px;
+  padding: 5px;
   background-color: #121010;
-  transform: translateY(-30px);
+  margin-top: 25px;
+  
 }
 
 .cart-item-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 0;
 }
 
 .item-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 100%; 
-  gap: 10px;
-  transform: translate(60px, 0px); 
+  align-items: flex-end; /* Changed */
+  width: 100%;
+  gap: 15px; 
 }
 
 .item-name {
   color: #fff;
   font-family: 'Leon', sans-serif;
   font-size: 1.5rem;
-  transform: translateX(75px);
-  margin-bottom: 15px
-  
+  width: 100%; 
+  text-align: right;
+  transform: translateY(-10%); 
+}
+
+/* New class */
+.controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .quantity-control {
   display: flex;
   align-items: center;
-  gap: 5px;
-  transform: translateX(50px);
+  gap: 15px; /* Changed */
   font-size: 1.2rem;
+  font-family: 'ArbelHagilda';
 }
 
 .quantity-btn {
@@ -220,7 +177,6 @@ margin-bottom: -15px;
   border: none;
   width: 30px;
   height: 30px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,83 +185,30 @@ margin-bottom: -15px;
 
 .quantity-btn img {
   width: 18.489px;
-height: 18.489px;
-
-}
-
-.item-price-visual {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  color: #fff;
-  font-family: 'ArbelHagilda';
- 
+  height: 18.489px;
 }
 
 .price-control {
   display: flex;
   align-items: center;
-
-  margin-top: 7px;
-  transform: translateX(-100px);
 }
 
 .item-price {
   font-size: 1.2rem;
 }
 
-.item-image {
-  height: 120px;
-  width: auto;
-}
 
 .dotted-separator {
- 
   width: 100%;
-}
-
-
-.cart-summary {
-  padding: 30px 0;
-  color: #fff;
-  font-family: 'Leon';
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  font-size: 1.1rem;
-}
-
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.summary-row.total {
-  font-family: 'Leon', sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.payment-button-container {
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.payment-button-container img {
-  width: 100%;
-  max-width: 300px;
+  margin: 20px 0;
 }
 
 
 .cart-total-footer {
-
   background-color: #DFDED0;
   width: 100%;
   padding: 15px 20px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -316,9 +219,9 @@ height: 18.489px;
 
 .total-text {
   display: flex;
-  align-items: baseline; 
+  align-items: baseline;
   gap: 15px;
-  flex-direction: row-reverse; 
+  flex-direction: row-reverse;
 }
 
 .total-label {
@@ -326,20 +229,20 @@ height: 18.489px;
   font-size: 1.2rem;
   font-size: 18px;
   font-style: normal;
-font-weight: 400;
-line-height: 150%;
-letter-spacing: 0.54px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.54px;
   color: #121010;
 }
 
 .total-amount {
- color: #000;
-text-align: right;
-font-family: ArbelHagilda;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: 150%; 
+  color: #000;
+  text-align: right;
+  font-family: ArbelHagilda;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
 }
 
 .payment-button {
@@ -348,7 +251,7 @@ line-height: 150%;
   font-family: 'ArbelHagilda', sans-serif;
   font-size: 1.2rem;
   border: none;
-  border-radius: 50px; 
+  border-radius: 50px;
   padding: 15px 35px;
   cursor: pointer;
   transition: opacity 0.3s;
@@ -356,4 +259,195 @@ line-height: 150%;
 
 .payment-button:hover {
   opacity: 0.8;
+}
+
+
+/* --- New Details Form Styles --- */
+
+/* Main container for the details form with the new background and shadow */
+.details-container {
+  background: #DFDED0;
+  box-shadow: 0 0px 0px 0px #DFDED0;
+  padding: 40px 5px;
+  box-sizing: border-box;
+  color: #000; /* Default text color for this container */
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.details-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+.form-section:first-of-type {
+  margin-bottom: 30px;
+}
+
+/* Titles like "פרטי התקשרות" */
+.form-title {
+  color: #000;
+  text-align: right;
+  font-family: Leon;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.54px;
+  margin: 0 0 15px 0;
+}
+
+/* Input fields styling */
+.details-container input[type="text"],
+.details-container input[type="email"],
+.details-container input[type="tel"] {
+  width: 100%;
+  height: 40px; /* גובה מעט שונה להתאמה טובה יותר */
+  border-radius: 100px;
+  border: 1px solid #000;
+  background: #DFDED0;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+  font-family: ArbelHagilda; /* הוחל על האינפוט עצמו */
+  font-size: 16px;
+  color: #000;
+  text-align: right;
+}
+
+/* Placeholder text styling */
+.details-container input::placeholder {
+  color: #000;
+  text-align: right;
+  font-family: ArbelHagilda;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.48px;
+  opacity: 0.7; /* שקיפות קלה כדי להבדיל מהטקסט המוזן */
+}
+
+/* Terms and Checkbox section */
+.terms-container {
+  margin-top: 25px;
+}
+
+.terms-label {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+/* Hides the original checkbox */
+.hidden-checkbox {
+  display: none;
+}
+
+/* The custom checkbox circle */
+.custom-checkbox {
+  width: 22.59px;
+  height: 22.59px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+/* Style for the custom checkbox when the original is checked */
+.hidden-checkbox:checked + .custom-checkbox {
+  background-color: #000;
+}
+
+.terms-text {
+  width: 330.404px;
+  color: #121010;
+  text-align: right;
+  font-family: ArbelHagilda;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.39px;
+}
+
+/* Checkout button */
+.checkout-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.checkout-button {
+  width: 117.43px;
+height: 117.43px;
+  border-radius: 50%;
+  background-color: #121010;
+  color: #DFDED0;
+  border: 1px solid #121010;
+  font-family: 'ArbelHagilda', sans-serif;
+  font-size: 18px;
+  color: #FFF;
+
+text-align: center;
+font-family: ArbelHagilda;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%; /* 21.6px */
+letter-spacing: 0.54px;
+  cursor: pointer;
+}
+
+/* Styling for the entire page background during the details step */
+.cart-content.details-view-content {
+  /* background-color: transparent; */
+  background: #DFDED0;
+  transform: none;
+  padding-top: 40px; 
+  
+  
+}
+
+
+.checkout-progress.details-view,
+.cart-content.details-view {
+  background-color: #DFDED0;
+}
+
+
+.cart-content.details-view {
+  transform: none; 
+  box-shadow: 0 8px 11.5px 6px #000;
+  padding-top: 20px;
+}
+
+
+.checkout-progress.details-view .progress-title {
+  color: #000;
+}
+
+.checkout-progress.details-view .step {
+  color: #777; 
+}
+
+.checkout-progress.details-view .step.active {
+  color: #000; 
+}
+
+.checkout-progress.details-view .dot {
+  background-color: #777; 
+}
+
+.checkout-progress.details-view .dot.active {
+  background-color: #000; 
 }

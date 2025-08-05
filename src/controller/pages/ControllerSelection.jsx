@@ -55,15 +55,6 @@ export default function ControllerSelection() {
     setSelectedVideo(video);
     setShowColorVideo(true);
 
-    fetch(`https://hadarproject.com/select_video?video_id=${video.id}`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error(error);
-    });
-
     setTimeout(() => {
       navigate(`/controller/loading/${video.id}`);
     }, 2000);

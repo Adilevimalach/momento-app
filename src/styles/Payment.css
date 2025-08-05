@@ -1,13 +1,16 @@
 .payment-page {
   min-height: calc(100vh - 212px);
-  background: #111;
+  /* background: #111; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   direction: rtl;
   padding-bottom: 40px;
 }
+
+
+
 
 .buy-button {
   background: none;
@@ -37,6 +40,7 @@
   width: 100%;
   height: auto;
   transition: opacity 0.2s ease;
+  transform: translateY(80%);
 }
 
 .buy-button:disabled .buy-button-img {
@@ -48,54 +52,60 @@
   width: 340px;
   height: 200px;
   margin-bottom: 32px;
-  margin-top: 16px;
+
 }
-.card-back {
-position: absolute;
-  top: -59px;
-  left: -10px;
-  width: 360px;
-  opacity: 1;
-  z-index: 1;
-}
+
 .card-front {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 340px;
-  z-index: 2;
+  top: 65%;
+  left: 15px;
+
+  background-color: #111;
+  border-radius: 12px;
+background: var(--, #121010);
+
+
+box-shadow: 0 2px 2.4px 1px #000, 0 -1px 4.4px 1px rgba(255, 255, 255, 0.40);
+backdrop-filter: blur(2px);
 }
 .payment-or {
   color: #bbb;
   font-size: 1.1rem;
-  margin: 0 0 36px 0;
+  margin: 35% 0 13% 0;
   text-align: center;
 }
 
+/* Container for the payment option buttons */
 .payment-options {
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 18px;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 48px;
+  gap: 35px; 
 }
-.payment-option {
-  background: #222;
-  color: #fff;
-  border: none;
-  border-radius: 30px;
+
+/* The main style for the new buttons */
+.payment-option-button {
+
+  width: 105px;
+  height: 105px;
+  border-radius: 50%; 
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  flex-shrink: 0;
+  background-color: #121010;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); 
+  box-shadow: 0 -1px 4.4px rgba(255, 255, 255, 0.4),  0 2px 2.4px #000;
+  color: white;
+  font-family: 'ArbelHagilda', sans-serif;
+  font-size: 16px;
+
   display: flex;
   align-items: center;
-  width: 320px;
-  font-size: 1.3rem;
-  font-family: inherit;
-  padding: 12px 28px 12px 0;
-  gap: 16px;
+  justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 16px #0002;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s ease;
 }
+
 .payment-option img {
   width: 32px;
   height: 32px;
@@ -118,7 +128,6 @@ position: absolute;
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 16px #0002;
-  transition: background 0.2s, box-shadow 0.2s;
 }
 .payment-buy-btn img {
   height: 32px;
@@ -127,4 +136,53 @@ position: absolute;
 .payment-buy-btn:active, .payment-buy-btn:focus {
   background: #222;
   box-shadow: 0 4px 24px #0004;
+}
+
+
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-video-container {
+ width: 200px;
+  height: auto;
+  object-fit: cover;
+ 
+}
+
+
+.success-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateY(-80%);
+}
+
+.success-icon {
+  width: 100px;
+  height: auto;
+  animation: pop-in 0.5s ease-out; 
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.success-title {
+  width: 370.572px;
+height: 34px;
+flex-shrink: 0;
+color: #FFF;
+text-align: center;
+font-family: Leon;
+font-size: 28px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%; /* 33.6px */
+letter-spacing: 0.56px;
 }

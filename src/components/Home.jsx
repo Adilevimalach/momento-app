@@ -38,7 +38,7 @@ const handlePrevious = () => {
 
       {viewMode === 'grid' ? (
     
-        <div className="home-grid">
+        <div className="home-grid-home">
           {VIDEO_OPTIONS.map(o => (
             <div
               key={o.id}
@@ -71,7 +71,7 @@ const handlePrevious = () => {
               className="home-video"
               aria-label={currentItem.label}
             />
-            <span className="home-title">
+            <span className="home-title-single">
               <img src={currentItem.titleSvgflat} alt={currentItem.label} />
             </span>
             
