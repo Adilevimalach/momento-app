@@ -220,7 +220,7 @@ export const VIDEO_OPTIONS = [
 
     price: 109,
     priceSvg: videoPrice119,
-    ipadVideo: ipadV3,
+    ipadVideo: ipadV2,
     pageVideo: pageVideo2,
     videoTime: 15,
     qrCode: qr3,
@@ -257,7 +257,7 @@ export const VIDEO_OPTIONS = [
 
     price: 225,
     priceSvg: videoPrice209,
-    ipadVideo: ipadV2,
+    ipadVideo: ipadV3,
     pageVideo: pageVideo3,
     videoTime: 15,
     qrCode: qr2,
