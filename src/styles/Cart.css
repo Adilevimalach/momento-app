@@ -34,14 +34,14 @@
 .shipping-banner {
   background-color: #FFB8BE;
   text-align: center;
-  padding: 10px 15px;
+  padding: 10px 5px;
 }
 
 .shipping-banner p {
   margin: 0;
   color: #121010;
   font-family: 'ArbelHagilda', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .logo-bar {

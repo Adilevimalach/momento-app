@@ -73,6 +73,7 @@ export default function Header() {
   const isCartPage = location.pathname === '/cart';
   const isHomePage = location.pathname === '/';
   const isPhoneHomePage = location.pathname === '/home';
+
   const logoToShow = isAboutPage ? logos[currentLogoIndex] : normalLogo;
   const [showCategoryLabel, setShowCategoryLabel] = useState(false);
   const [categoryLabel, setCategoryLabel] = useState("");
@@ -111,10 +112,10 @@ export default function Header() {
             textAlign: 'center',
             padding: '15px 15px',
             top: 0,
-            marginTop: isPhoneHomePage ? '-61px' : '-33px'
+            marginTop: isPhoneHomePage ? '-20px' : '-20px'
           }}>
             <p style={{
-              transform: 'translateY(-1px)',
+              // transform: 'translateY(-1px)',
               margin: 0,
               color: '#121010',
               fontFamily: 'ArbelHagilda',
@@ -142,11 +143,13 @@ export default function Header() {
           }}>
             {isPaymentComplete ? (
               <>
+              <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end', paddingTop: '5px'}}>
+                
               <img 
                   src={logoM} 
                   alt="Momento Logo" 
                   onClick={() => navigate('/about')}
-                  style={{ cursor: 'pointer', height: '25px' }}
+                  style={{ cursor: 'pointer', height: '25px'}}
                 />
               <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end', paddingRight: '10px'}}>
                 <img
@@ -155,6 +158,7 @@ export default function Header() {
                   onClick={() => navigate('/home', { state: { fromPaymentComplete: true } })}
                   style={{cursor: 'pointer', height: '24px'}}
                 />
+              </div>
               </div>
               </>
             ) : (
@@ -203,12 +207,12 @@ export default function Header() {
               src={logoToShow}
               alt="Momento logo"
               className="logo"
-              style={isAboutPage ? { width: '90vw', height: 'auto',transform: 'translateY(-10px)' } : { width: '90vw', height: 'auto' }}
+              style={isAboutPage ? { width: '90vw', height: 'auto'} : { width: '90vw', height: 'auto' }}
             />
           </div>
           {isHomePage && <p>קטלוג יינות</p>}
           {categoryLabel && (
-            <p className={`fade-in-category${showCategoryLabel ? '' : ' hidden'}`} style={{ marginTop: '5px',marginLeft: '-4px' } }>{categoryLabel}</p>
+            <p className={`fade-in-category${showCategoryLabel ? '' : ' hidden'}`} style={{ marginTop: '-10px',marginLeft: '-4px' } }>{categoryLabel}</p>
           )}
         </>
       )}

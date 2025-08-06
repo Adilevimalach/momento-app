@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { clearCart } from '../utils/cart';
 
 
-import loadingVideo from '../assets/buttons/loading-animation.mp4'; // שנה לנתיב הנכון של סרטון הטעינה
-import successIcon from '../assets/buttons/v after buying.svg';    // שנה לנתיב הנכון של אייקון ה-V
+import loadingVideo from '../assets/buttons/loading-animation.mp4'; 
+import successIcon from '../assets/buttons/v after buying.svg';    
 
 import mastercardFront from '../assets/buttons/mastercard1.svg';
 import paypalIcon from '../assets/buttons/paypal.svg';
@@ -40,11 +40,19 @@ export default function Payment({ onHideProgressBar }) {
 
   return (
     <div className="payment-page">
-      
       {viewState === 'idle' && (
         <>
           <div className="payment-card-stack">
-            <img src={mastercardFront} alt="mastercard" className="card-front" />
+            <button
+              
+              className={`payment-card-button ${selectedPayment === 'card' ? 'selected' : ''}`}
+              aria-label="Pay with Paypal"
+           
+              onClick={() => setSelectedPayment('card')}
+            >
+              <img src={mastercardFront} alt="mastercard" className="card-front" />
+            </button>
+            
           </div>
           <div className="payment-or">או תשלום באמצעות</div>
           <div className="payment-options">

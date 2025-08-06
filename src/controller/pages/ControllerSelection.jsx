@@ -21,7 +21,6 @@ export default function ControllerSelection() {
     const twoMinutes = 120000;
 
     const returnHomeAndClearCart = () => {
-      clearCart();
       navigate('/');
     };
 

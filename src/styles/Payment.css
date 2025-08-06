@@ -1,165 +1,138 @@
+/* ======================================= */
+/* ====== General Page Layout ====== */
+/* ======================================= */
 .payment-page {
   min-height: calc(100vh - 212px);
-  /* background: #111; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   direction: rtl;
-  padding-bottom: 40px;
+  padding: 105px 20px 40px 20px;
+  box-sizing: border-box;
 }
 
+/* ======================================= */
+/* ====== Payment Elements ====== */
+/* ======================================= */
 
+/* --- Card Styles --- */
+.payment-card-stack {
+  position: relative;
+  width: 340px;
+  height: 200px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.payment-card-button {
+  background: none;
+  border: 2px solid transparent;
+  padding: 8px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.card-front {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* --- Separator Text --- */
+.payment-or {
+  color: #bbb;
+  font-size: 1.1rem;
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* --- Alternative Payment Options (Paypal, ApplePay) --- */
+.payment-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 45px; 
+  margin-top: 30px;
+}
+
+.payment-option-button {
+  width: 105px;
+  height: 105px;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  border-radius: 50%; 
+  background-color: #121010;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); 
+  box-shadow: 0 -1px 4.4px rgba(255, 255, 255, 0.4), 0 2px 2.4px #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 0; 
+  transition: all 0.2s ease-in-out;
+}
+
+/* ======================================= */
+/* ====== SELECTED STATE STYLES ====== */
+/* ======================================= */
+
+.payment-card-button.selected {
+  border-color: white;
+  box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.7);
+}
+
+.payment-option-button.selected {
+  border-color: white;
+  box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.7);
+}
+
+/* ======================================= */
+/* ====== Buy Button & Statuses ====== */
+/* ======================================= */
 
 .buy-button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: transform 0.3s ease;
-  outline: none;
-}
-
-.buy-button:active {
-  transform: scale(0.95);
-}
-
-.buy-button.pulse-effect {
-  animation: pulse 0.3s ease-out;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.95); }
-  100% { transform: scale(1); }
+  margin-top: 40px;
 }
 
 .buy-button-img {
   display: block;
   width: 100%;
   height: auto;
-  transition: opacity 0.2s ease;
-  transform: translateY(80%);
 }
-
-.buy-button:disabled .buy-button-img {
-  opacity: 0.7;
-}
-
-.payment-card-stack {
-  position: relative;
-  width: 340px;
-  height: 200px;
-  margin-bottom: 32px;
-
-}
-
-.card-front {
-  position: absolute;
-  top: 65%;
-  left: 15px;
-
-  background-color: #111;
-  border-radius: 12px;
-background: var(--, #121010);
-
-
-box-shadow: 0 2px 2.4px 1px #000, 0 -1px 4.4px 1px rgba(255, 255, 255, 0.40);
-backdrop-filter: blur(2px);
-}
-.payment-or {
-  color: #bbb;
-  font-size: 1.1rem;
-  margin: 35% 0 13% 0;
-  text-align: center;
-}
-
-/* Container for the payment option buttons */
-.payment-options {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 35px; 
-}
-
-/* The main style for the new buttons */
-.payment-option-button {
-
-  width: 105px;
-  height: 105px;
-  border-radius: 50%; 
-  border: 1px solid rgba(255, 255, 255, 0.2); 
-  flex-shrink: 0;
-  background-color: #121010;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px); 
-  box-shadow: 0 -1px 4.4px rgba(255, 255, 255, 0.4),  0 2px 2.4px #000;
-  color: white;
-  font-family: 'ArbelHagilda', sans-serif;
-  font-size: 16px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.payment-option img {
-  width: 32px;
-  height: 32px;
-  margin-left: 18px;
-}
-.payment-option:active, .payment-option:focus {
-  background: #333;
-  box-shadow: 0 4px 24px #0004;
-}
-
-.payment-buy-btn {
-  background: #191919;
-  border: none;
-  border-radius: 22px;
-  width: 200px;
-  height: 54px;
-  margin: 36px 0 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 2px 16px #0002;
-}
-.payment-buy-btn img {
-  height: 32px;
-  width: auto;
-}
-.payment-buy-btn:active, .payment-buy-btn:focus {
-  background: #222;
-  box-shadow: 0 4px 24px #0004;
-}
-
-
 
 .loading-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translate(0, -50px);
 }
 
 .loading-video-container {
- width: 200px;
+  width: 200px;
   height: auto;
   object-fit: cover;
- 
 }
-
 
 .success-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transform: translateY(-80%);
+  transform: translate(0, -50px);
 }
 
 .success-icon {
@@ -173,41 +146,17 @@ backdrop-filter: blur(2px);
   100% { transform: scale(1); opacity: 1; }
 }
 
-
 .success-title {
   width: 370.572px;
-height: 34px;
-flex-shrink: 0;
-color: #FFF;
-text-align: center;
-font-family: Leon;
-font-size: 28px;
-font-style: normal;
-font-weight: 400;
-line-height: 120%; /* 33.6px */
-letter-spacing: 0.56px;
-}
-
-.payment-options .payment-option-button {
-
-  width: 105px;
-  height: 105px;
-  box-sizing: border-box;
-  background: none;
-  border: 2px solid transparent;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: all 0.2s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-
-  /* הוסף את השורה הבאה כדי למנוע מהכפתור להימתח */
-  flex-shrink: 0; 
-}
-.payment-option-button.selected {
-  border-color: white;
-  box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.7);
+  height: 34px;
+  flex-shrink: 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Leon;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0.56px;
+  /* margin-top: 20px; */
 }

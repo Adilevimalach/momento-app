@@ -150,7 +150,7 @@ return (
 
         <div className="wine-info-grid">
           <div className="wine-info-item">
-            <h3>החיבור לטבע</h3>
+            <h3>החיבור לרגע</h3>
             <p>{video.natureConnection || 'תיאור החיבור לטבע...'}</p>
           </div>
           <div className="wine-info-item">

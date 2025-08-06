@@ -21,7 +21,11 @@ const checkoutSteps = [
 export default function Cart() {
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
-  const [activeStepId, setActiveStepId] = useState('cart');
+ const [activeStepId, setActiveStepId] = useState(() => {
+  const savedStep = sessionStorage.getItem('checkoutStep');
+ 
+  return savedStep && savedStep != 'payment' ? savedStep : 'cart';
+});
   const [isProgressVisible, setIsProgressVisible] = useState(true);
   const activeStep = checkoutSteps.find(step => step.id === activeStepId);
 

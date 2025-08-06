@@ -11,9 +11,44 @@ export default function ControllerPurchase() {
   const navigate = useNavigate();
   const video = getVideoById(videoId);
 
+  
+    useEffect(() => {
+      const timeoutIdRef = { current: null };
+      const twoMinutes = 120000;
+  
+      const returnHomeAndClearCart = () => {
+        navigate('/');
+      };
+  
+      const resetTimer = () => {
+        if (timeoutIdRef.current) {
+          clearTimeout(timeoutIdRef.current);
+        }
+        timeoutIdRef.current = setTimeout(returnHomeAndClearCart, twoMinutes);
+      };
+  
+      const events = ['click', 'mousemove', 'keydown', 'scroll', 'touchstart'];
+  
+      events.forEach(event => {
+        window.addEventListener(event, resetTimer);
+      });
+  
+      resetTimer();
+  
+      return () => {
+        if (timeoutIdRef.current) {
+          clearTimeout(timeoutIdRef.current);
+        }
+        events.forEach(event => {
+          window.removeEventListener(event, resetTimer);
+        });
+      };
+    }, [navigate]);
+  
   const handleBackToController = () => {
     navigate('/controller/transition', { state: { skipIntro: true } });
   };
+ה
 
   const handleBackToVideo = () => {
     navigate(`/controller/video/${videoId}`);
