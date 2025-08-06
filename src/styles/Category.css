@@ -39,7 +39,7 @@
 .purchase-button {
   width: 120px;
   height: 120px;
-  transform: translate(-25px,10px);
+  transform: translate(-25px,2px);
   border: 0.5px solid #000;
   background: #DFDED0;
   border-radius: 159.323px;
