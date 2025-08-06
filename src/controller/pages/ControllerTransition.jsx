@@ -38,15 +38,6 @@ function ControllerTransition() {
 
   return (
    
-
-  // <motion.div
-  //     className="transition-page-container"
-  //     style={{ position: 'fixed', inset: 0, zIndex: 10 }}
-  //     variants={pageVariants}
-  //     initial="initial"
-  //     animate="animate"
-  //     exit="exit"
-  //   >
   <motion.div
       className="transition-page-container"
       style={{ position: 'fixed', inset: 0, zIndex: 10 }}
