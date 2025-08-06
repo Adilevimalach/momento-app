@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState,useEffect } from 'react';
+import { useParams, useNavigate  } from 'react-router-dom';
 import { getVideoById, getWineDetail, getVideoOptionsLength, getVideoByIndex, getVideoIndexById } from '../../constants/videos';
 import arrow from '../../assets/arrow.svg';
 import logo from '../../assets/IPAD/logo m/m ipad.svg';

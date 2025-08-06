@@ -1,5 +1,5 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, {  useState,useEffect } from 'react';
+import { useParams, useNavigate  } from 'react-router-dom';
 import { getVideoById } from '../../constants/videos';
 import logo from '../../assets/selectionLogo.svg';
 import backArrow from '../../assets/nextMoment.svg';

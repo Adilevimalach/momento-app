@@ -7,12 +7,12 @@ import './ControllerLoading.css';
 
 
 const PLAY_MS = { 
-  rain: 33000, 
-  avirot: 36000, 
-  mishpachti: 34000, 
-  shamesh: 34000, 
-  shkira: 38000, 
-  shranim: 34000 
+  rain: 30000, 
+  avirot: 33000, 
+  mishpachti: 31000, 
+  shamesh: 31000, 
+  shkira: 35000, 
+  shranim: 31000 
 };
 
 export default function ControllerLoading() {
