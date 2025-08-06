@@ -40,11 +40,9 @@ export default function ControllerVideo() {
        console.log('Start button clicked. Publishing MQTT commands...');
       const pcTopic = 'video/commands';
       
-      const pcPayload = JSON.stringify({ id: video.id });
-      const numberToSend = idToNumberMap[video.id];
-
-      const espTopic = 'esp32/commands';
-      const espPayload = String(numberToSend);
+      const pcPayload = JSON.stringify({ id: nextVideo.id });
+      console.log(`Publishing to ${pcTopic}:`, pcPayload);
+  
 
       if (client && client.connected) {
         client.publish(pcTopic, pcPayload, (error) => {
@@ -57,6 +55,7 @@ export default function ControllerVideo() {
     } else {
       console.error('MQTT client not connected. Cannot send commands.');
     }
+
     navigate(`/controller/loading/${nextVideo.id}`);
       }
   };
