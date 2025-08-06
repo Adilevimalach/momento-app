@@ -7,6 +7,7 @@ import logo from '../../assets/IPAD/logo m/m ipad.svg';
 import backArrow from '../../assets/nextMoment.svg';
 import descrEllipse from '../../assets/descrEllipse.svg';
 import { motion } from 'framer-motion';
+import client from '../../utils/mqttClient';
 
 import './ControllerVideo.css';
 
@@ -17,7 +18,7 @@ export default function ControllerVideo() {
   const [showWineDetails, setShowWineDetails] = useState(false);
 
   const handleBackToController = () => {
-    navigate('/controller');
+    navigate('/controller/selection');
   };
 
   const handleNextMoment = () => {
@@ -26,11 +27,40 @@ export default function ControllerVideo() {
     const nextIndex = (currentIndex + 1) % totalVideos;
     const nextVideo = getVideoByIndex(nextIndex);
 
-    if (nextVideo) {
-      navigate(`/controller/video/${nextVideo.id}`);
-    }
-  };
+    const idToNumberMap = {
+      rain: 1,
+      shkira: 2,
+      mishpachti: 3,
+      avirot: 4,
+      shranim: 5,
+      shamesh: 6
+    };
 
+    if (nextVideo) {
+       console.log('Start button clicked. Publishing MQTT commands...');
+      const pcTopic = 'video/commands';
+      
+      const pcPayload = JSON.stringify({ id: video.id });
+      const numberToSend = idToNumberMap[video.id];
+
+      const espTopic = 'esp32/commands';
+      const espPayload = String(numberToSend);
+
+      if (client && client.connected) {
+        client.publish(pcTopic, pcPayload, (error) => {
+          if (error) {
+            console.error('Failed to publish to PC topic:', error);
+          } else {
+            console.log(`Successfully published to ${pcTopic}`);
+          }
+        });
+    } else {
+      console.error('MQTT client not connected. Cannot send commands.');
+    }
+    navigate(`/controller/loading/${nextVideo.id}`);
+      }
+  };
+  
   const handleShowWineDetails = () => {
     setShowWineDetails(true);
   };
@@ -63,9 +93,9 @@ export default function ControllerVideo() {
       exit={{ opacity: 0, transition: { duration: 0 } }}
     >
       <div className="video-header">
-        <button className="logo-button" onClick={handleBackToController}>
+        <div className="logo-button" onClick={handleBackToController}>
           <img src={logo} alt="לוגו" className="header-logo" />
-        </button>
+        </div>
         <img src={video.titleSvgflat} alt={video.label} className="video-title-header" />
         <div className="not-your-moment" onClick={handleNextMoment}>
           <span>לרגע הבא</span>

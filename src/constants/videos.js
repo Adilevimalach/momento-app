@@ -51,9 +51,9 @@ import pageVideo6 from '../assets/pages/each page video/שקיעה מול הים
 
 import checkoutWine1 from '../assets/pages/bottles checkout/מוקאפ גשם.mp4';
 import checkoutWine2 from '../assets/pages/bottles checkout/מוקאפ ערב רומנטי.mp4';
-import checkoutWine3 from '../assets/pages/bottles checkout/מוקאפ דשא.mp4';
+import checkoutWine3 from '../assets/pages/bottles checkout/מוקאפ מסיבה.mp4';
+import checkoutWine5 from '../assets/pages/bottles checkout/מוקאפ דשא.mp4';
 import checkoutWine4 from '../assets/pages/bottles checkout/מוקאפ שישי.mp4';
-import checkoutWine5 from '../assets/pages/bottles checkout/מוקאפ מסיבה.mp4';
 import checkoutWine6 from '../assets/pages/bottles checkout/מוקאפ יין שקיעה בים.mp4';
 import generalCheckout from '../assets/pages/bottles checkout/QRbackground.mp4';
 
@@ -135,8 +135,8 @@ export const VIDEO_OPTIONS = [
     mp4BW: vid6BW,
     titleSvg: title6,
     titleSvgflat: title6flat,
-    text1:'.רגע שנושם, סיכום של יום',
-    text2:'.כמו נשיפה ארוכה ומשוחררת',
+    text1:'רגע שנושם, סיכום של יום',
+    text2:'כמו נשיפה ארוכה ומשוחררת',
 
     mainDescription:'יין לבן על בסיס ויונייה מהרי ירושלים. יין קליל, עגול ומרגיע, שנולד מתוך רגעים שבהם השמש יורדת, והעולם עובר לקצב אחר.',
     natureConnection:'הויונייה מהרי ירושלים הביא איתו רכות, רעננות וארומות הדרים שמשקפות בדיוק את הרגע הזה. יין שמרגיש כמו נשימה עמוקה של סוף יום, מתקתק במידה, רך ונעים, אבל עם נגיעה של מליחות שמחזירה אותנו לרוח מהים. בלי חבית, בלי עומס, רק תחושה של רוגע שמתפשט, כמו קרן שמש אחרונה על העור.',
@@ -210,7 +210,6 @@ export const VIDEO_OPTIONS = [
     titleSvgflat: title4flat,
     text1:'רגע קליל, חי, בלי לחשוב',
     text2:'רק לרקוד',
-
     mainDescription:'יין מבעבע על בסיס שרדונה ופינו נואר משפלת יהודה.יין קליל, תוסס ומלא חיים, שנולד מתוך רגעים כיפיים, כאלה שפשוט זורמים, בלי לחשוב יותר מדי.',
     natureConnection:'הבלנד המבעבע של שרדונה ופינו נואר משפלת יהודה נבחר בגלל האנרגיה והחיות שהוא מביא איתו. תסיסה איטית והתיישנות על השמרים תרמו לו גוף רך ובועות עדינות, שמדגדגות בחיך. יין שנולד לרגעים של חופש   שמחים, זורמים, ספונטניים. כזה שלא צריך בשבילו סיבה מיוחדת, רק מוזיקה וחברה טובה.',
     vineyard:'הענבים נבצרו בשנת 2022 מכרם גבעת ישעיהו שבשפלת יהודה, בגובה של כ־420 מטר.הכרם שוכן על קרקע גירית עמוקה, באקלים ים־תיכוני עם בריזה מערבית   תנאים ששמרו על חומציות גבוהה ורעננות טבעית, אידיאליים ליין מבעבע. הבציר התקיים בשעות הבוקר הקרירות, לשמירה על פרי חד, ארומות פרחוניות, ואופי תוסס ומדויק.',

@@ -16,6 +16,8 @@ export default function Category() {
   }, []);
   const { categoryId } = useParams();
   const video = getVideoById(categoryId);
+
+  const containerRef = useRef(null);
   const detailsRef = useRef(null);
 
   const navigate = useNavigate();
@@ -57,18 +59,16 @@ export default function Category() {
   }, []);
 
   const scrollToDetails = () => {
-    window.scrollTo({
-      top: window.scrollY + window.innerHeight,
-      behavior: 'smooth'
-    });
+    detailsRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  if (!video) {
+    return <div>Category not found</div>;
+  }
 
   if (!video) {
     return <div>Category not found</div>;
@@ -81,7 +81,7 @@ export default function Category() {
   ];
 
 return (
-  <div className="category-container" style={{
+  <div className="category-container" ref={containerRef} style={{
     maxWidth: '1200px',
     margin: '0 auto',
     paddingTop: '0px',
@@ -89,8 +89,10 @@ return (
     direction: 'rtl',
     color: 'white',
     textAlign: 'center',
-    position: 'relative'
-  }}>
+    position: 'relative',
+    overflowY: 'auto', 
+      height: '100vh'
+  }} >
     
     <div className="video-container">
       <video
@@ -139,8 +141,8 @@ return (
     </div>
 
     {showContent && (
-      <div className="fade-in-category wine-details-section">
-        <div className="dotted-separator"></div>
+      <div className="fade-in-category wine-details-section" ref={detailsRef}>
+        <div className="dotted-separator-top"></div>
 
         <p className="wine-main-description">
           {video.mainDescription || 'הטקסט הראשי של היין יופיע כאן...'}
@@ -180,7 +182,6 @@ return (
                     aria-label={detail.title}
                   />
                 </div>
-                <h3>{detail.title}</h3>
                 <p>{video.description[detailId]}</p>
               </div>
             );
@@ -189,7 +190,7 @@ return (
         
         <div className="dotted-separator"></div>
 
-        {/* --- החלק החדש מתחיל כאן --- */}
+
         <div className="related-products-section">
           <h2 className="related-products-title">עשוי לעניין אותך</h2>
           <div className="related-products-grid">

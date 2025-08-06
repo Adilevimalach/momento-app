@@ -16,7 +16,9 @@ import senLogo from '../assets/pages/senLogo.svg';
 export default function About() {
   const navigate = useNavigate();
   const videos = getAllVideo();
-  const contentRef = useRef(null); 
+  const contentRef = useRef(null);
+  const contentReftop = useRef(null);
+
   const [isChecked, setIsChecked] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false); 
 
@@ -26,7 +28,9 @@ export default function About() {
   };
   
   const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  console.log('Scrolling to top');
+  // window.scrollTo({ top: 0, behavior: 'smooth' });
+  contentReftop.current?.scrollIntoView({ top: 0, behavior: 'smooth' });
 };
 
   const handleSubmit = () => {
@@ -37,7 +41,7 @@ export default function About() {
 };
 
   return (
-  <div className="about-container">
+  <div className="about-container" ref={contentReftop}>
     <div className="bottle-grid">
       {videos.map((video) => (
         <div key={video.id} className="bottle-item">

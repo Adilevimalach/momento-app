@@ -31,7 +31,7 @@
 
 .back-to-moment {
   display: flex;
-  /* margin-top: -20px; */
+
   background: none;
   border: none;
   flex-direction: row-reverse;
@@ -42,7 +42,7 @@
   font-family: 'ArbelHagilda';
 }
 .video-title-header {
-  transform: translate(-50px,-7px);
+  transform: translate(-50px,3.227px);
   width: 168.727px;
   height: 23.115px;
 }
@@ -55,11 +55,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(0px, -10px);  
+  transform: translate(0px, -4px);  
   font-family: Leon;
   font-size: 16px;
   letter-spacing: 0.48px;
   line-height: 150%; 
+}
+.video-price{
+  font-family: ArbelHagilda;
+  transform: translateY(2px);
 }
 
 .separator-dot {
@@ -87,26 +91,25 @@
   justify-content: flex-start; 
   text-align: center;
   position: relative;
+  top: 20px;
 }
 
 .checkout-video {
-  width: 556.584px;
-  height: 575.927px;
+  width: 506.584px;
+  height: 525.927px;
   flex-shrink: 0;
   object-fit: cover; 
 }
 
 .qr-code {
  position: absolute;
-  top: 36%;
-  
-  width: 160px; 
-  height: 160px;
+  top: 239px;
+  width: 145px; 
+  height: 145px;
   z-index: 2;
 }
 
-.purchase-content p {
-  
+.purchase-content p {  
   color: #FFF;
   text-align: center;
   font-family: 'Leon';
@@ -115,6 +118,6 @@
   font-weight: 400;
   line-height: 150%; 
   letter-spacing: 0.6px;
- 
+  transform: translateY(10px);
 }
 

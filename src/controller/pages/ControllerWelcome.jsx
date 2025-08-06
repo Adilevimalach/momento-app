@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './ControllerWelcome.css';
+import { clearCart } from '../../utils/cart';
 import client from '../../utils/mqttClient';
-
 import playButtonIcon from '../../assets/IPAD/first page/begin button.svg';
 
 const wordToAnimate = "moprnsq";
@@ -17,6 +17,22 @@ export default function ControllerWelcome() {
   const navigate = useNavigate();
   const [opacities, setOpacities] = useState(Array(letters.length).fill(1));
   const [isExiting, setIsExiting] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    clearCart();
+  }, []);
+  
+  useEffect(() => {
+  const onFsChange = () => setIsFullscreen(!!document.fullscreenElement);
+  document.addEventListener('fullscreenchange', onFsChange);
+  return () => document.removeEventListener('fullscreenchange', onFsChange);
+  }, []);
+
+  const enterFullscreen = () => {
+    const el = document.documentElement;
+    if (el.requestFullscreen) el.requestFullscreen();
+  };
 
   useEffect(() => {
     if (isExiting) return;
@@ -80,7 +96,7 @@ export default function ControllerWelcome() {
 
     setIsExiting(true);
     setOpacities(Array(letters.length).fill(1));
-    navigate('/controller/next');
+    navigate('/controller/next', { state: { skipIntro: false } });
   };
 
   const pageVariants = {
@@ -97,34 +113,50 @@ export default function ControllerWelcome() {
     }
   };
 
+ 
   return (
-    <motion.div 
-      className="controller-welcome-new-container"
-      variants={pageVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    >
-      <div className="media-wrapper">
-        <h1 className="welcome-title">
-          {letters.map((char, index) => (
-            <span 
-              key={index} 
-              className={index === 3 ? 'pulsing-letter' : ''}
-              style={{ opacity: opacities[index] }}
-            >
-              {char}
-            </span>
-          ))}
-        </h1>
-        
-        <button className="play-button" onClick={goToNextPage} aria-label="Start">
-          <img src={playButtonIcon} alt="Play Icon" />
-        </button>
-      </div>
+  <motion.div
+    className="controller-welcome-new-container"
+    variants={pageVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+  >
+    <div className="media-wrapper">
+      <h1 className="welcome-title">
+        {letters.map((char, index) => (
+          <span
+            key={index}
+            className={index === 3 ? 'pulsing-letter' : ''}
+            style={{ opacity: opacities[index] }}
+          >
+            {char}
+          </span>
+        ))}
+      </h1>
 
-      <p className="instruction-text">לחצו על העיגול כדי להתחיל</p>
-      
-    </motion.div>
-  );
+      <button className="play-button" onClick={goToNextPage} aria-label="Start">
+        <img src={playButtonIcon} alt="Play Icon" />
+      </button>
+    </div>
+
+    <p className="instruction-text">לחצו על העיגול כדי להתחיל</p>
+
+    {!isFullscreen && (
+      <button className="fullscreen-btn bottom-left" onClick={enterFullscreen} title="מסך מלא">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="7" height="2" rx="1" fill="#fff"/>
+            <rect x="4" y="4" width="2" height="7" rx="1" fill="#fff"/>
+            <rect x="17" y="4" width="7" height="2" rx="1" fill="#fff"/>
+            <rect x="22" y="4" width="2" height="7" rx="1" fill="#fff"/>
+            <rect x="4" y="22" width="7" height="2" rx="1" fill="#fff"/>
+            <rect x="4" y="17" width="2" height="7" rx="1" fill="#fff"/>
+            <rect x="17" y="22" width="7" height="2" rx="1" fill="#fff"/>
+            <rect x="22" y="17" width="2" height="7" rx="1" fill="#fff"/>
+          </svg>
+      </button>
+    )}
+  </motion.div>
+);
+
 }

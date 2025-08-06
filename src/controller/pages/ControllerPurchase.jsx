@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getVideoById } from '../../constants/videos';
-import logo from '../../assets/IPAD/logo m/m ipad.svg';
+import logo from '../../assets/selectionLogo.svg';
 import backArrow from '../../assets/nextMoment.svg';
 import descrEllipse from '../../assets/descrEllipse.svg';
 import './ControllerPurchase.css';
@@ -12,7 +12,7 @@ export default function ControllerPurchase() {
   const video = getVideoById(videoId);
 
   const handleBackToController = () => {
-    navigate('/controller');
+    navigate('/controller/transition', { state: { skipIntro: true } });
   };
 
   const handleBackToVideo = () => {
@@ -42,8 +42,8 @@ export default function ControllerPurchase() {
       <div className="video-description">
             <span>{video.description?.typeOfWine}</span>
             <img src={descrEllipse} alt="•" className="separator-dot" />
-            <span>₪{video.price}</span>
-          </div>
+            <span className="video-price">₪{video.price}</span>
+      </div>
       <div className="purchase-content">
         <video
           src={video.generalCheckoutVideo}

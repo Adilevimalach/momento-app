@@ -1,4 +1,4 @@
-import React, { PureComponent, useState } from 'react';
+import React, {  useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { VIDEO_OPTIONS } from '../../constants/videos';
@@ -7,6 +7,7 @@ import selectionLogo from '../../assets/selectionLogo.svg';
 import randomIcon from '../../assets/icons/randomButton.svg'
 import supriseIcon from '../../assets/icons/supriseIcon.svg';
 import client from '../../utils/mqttClient';
+import {clearCart} from '../../utils/cart';
 
 
 
@@ -15,13 +16,47 @@ export default function ControllerSelection() {
   const [showColorVideo, setShowColorVideo] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const timeoutIdRef = { current: null };
+    const twoMinutes = 120000;
+
+    const returnHomeAndClearCart = () => {
+      clearCart();
+      navigate('/');
+    };
+
+    const resetTimer = () => {
+      if (timeoutIdRef.current) {
+        clearTimeout(timeoutIdRef.current);
+      }
+      timeoutIdRef.current = setTimeout(returnHomeAndClearCart, twoMinutes);
+    };
+
+    const events = ['click', 'mousemove', 'keydown', 'scroll', 'touchstart'];
+
+    events.forEach(event => {
+      window.addEventListener(event, resetTimer);
+    });
+
+    resetTimer();
+
+    return () => {
+      if (timeoutIdRef.current) {
+        clearTimeout(timeoutIdRef.current);
+      }
+      events.forEach(event => {
+        window.removeEventListener(event, resetTimer);
+      });
+    };
+  }, [navigate]);
+  
   const idToNumberMap = {
   rain: 1,
-  shranim: 2,
-  avirot: 3,
-  mishpachti: 4,
-  shamesh: 5,
-  shkira: 6
+  shkira: 2,
+  mishpachti: 3,
+  avirot: 4,
+  shranim: 5,
+  shamesh: 6
 };
 
   const handleVideoClick = (video) => {
@@ -52,6 +87,7 @@ export default function ControllerSelection() {
   } else {
     console.error('MQTT client not connected. Cannot send commands.');
   }
+  
     setSelectedVideo(video);
     setShowColorVideo(true);
 
@@ -61,11 +97,15 @@ export default function ControllerSelection() {
   };
 
   return (
-     <motion.div
+  <motion.div
       className="controller-selection-root"
-      initial={{ y: '100vh', zIndex: 1 }}
-      animate={{ y: 0, zIndex: 1 }}
-      exit={{ zIndex: 0 }}
+      style={{ position: 'fixed', inset: 0, zIndex: 20 }}
+      variants={{
+        initial: { y: '100vh' },
+        animate: { y: 0 },
+      }}
+      initial="initial"
+      animate="animate"
       transition={{ duration: 1.5, ease: 'easeInOut' }}
     >
       <img src={selectionLogo} alt="Logo" className="selection-logo" />

@@ -296,11 +296,12 @@ import normalLogo from '../assets/logo new.svg';
 import logo1 from '../assets/logo-animation/momento1.svg';
 import logo2 from '../assets/logo-animation/momento2.svg';
 import logo3 from '../assets/logo-animation/momento3.svg';
-import logo4 from '../assets/logo-animation/moemnto4.svg';
-import logo5 from '../assets/logo-animation/moemnto5.svg';
+import logo4 from '../assets/logo-animation/momento4.svg';
+import logo5 from '../assets/logo-animation/momento5.svg';
 import logo6 from '../assets/logo-animation/momento6.svg';
 import logo7 from '../assets/logo-animation/momento7.svg';
 import logo8 from '../assets/logo-animation/momento8.svg';
+
 import arrow from '../assets/arrow.svg';
 import { VIDEO_OPTIONS } from '../constants/videos';
 import arrowX from '../assets/buttons/x.svg';
@@ -313,7 +314,7 @@ import logoM from '../assets/icons/logoM.svg';
 
 const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8];
 
-const ANIMATION_INTERVAL = 600;
+const ANIMATION_INTERVAL = 800;
 
 export default function Header() {
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
@@ -398,8 +399,9 @@ export default function Header() {
           <div style={{
             backgroundColor: '#FFB8BE',
             textAlign: 'center',
-            padding: '12px 15px',
-            marginTop: isPhoneHomePage ? '-54px' : '-22px'
+            padding: '15px 15px',
+            top: 0,
+            marginTop: isPhoneHomePage ? '-61px' : '-33px'
           }}>
             <p style={{
               transform: 'translateY(-1px)',
@@ -422,7 +424,8 @@ export default function Header() {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            padding: '15px 10px',
+            padding: '10px 10px',
+        
             direction: 'ltr',
             marginTop: '-6px',
             boxShadow: '0 5px 10px rgba(0, 0, 0, 0.4)'
@@ -490,7 +493,7 @@ export default function Header() {
               src={logoToShow}
               alt="Momento logo"
               className="logo"
-              style={isAboutPage ? { width: '92vw', height: 'auto' } : { width: '90vw', height: 'auto' }}
+              style={isAboutPage ? { width: '90vw', height: 'auto',transform: 'translateY(-10px)' } : { width: '90vw', height: 'auto' }}
             />
           </div>
           {isHomePage && <p>קטלוג יינות</p>}

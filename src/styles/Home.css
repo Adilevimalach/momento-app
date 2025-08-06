@@ -40,7 +40,7 @@
 
 .shop-now-button {
   position: absolute;
-  top: 55%;
+  top: 65%;
   left: 36%;
   width: 105px;
   height: 105px;
@@ -149,5 +149,6 @@
 
 .home-title-single img {
   width: 180px; 
-  height: auto;   
+  height: auto;
+  margin-top: 40px;
 }

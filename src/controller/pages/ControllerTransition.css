@@ -22,7 +22,7 @@
 .down-arrow {
   position: absolute;
   /* Correction: Moved up from the bottom */
-  bottom: 115px; 
+  bottom: 135px; 
   left: 50%;
   transform: translateX(-50%);
 
