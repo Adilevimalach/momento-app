@@ -82,7 +82,7 @@ export default function Category() {
 
 return (
   <div className="category-container" ref={containerRef} style={{
-    maxWidth: '1200px',
+    maxWidth: '1800px',
     margin: '0 auto',
     paddingTop: '0px',
     fontFamily: 'ContentFont',

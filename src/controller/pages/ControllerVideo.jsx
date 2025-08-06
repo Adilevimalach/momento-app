@@ -61,14 +61,7 @@ export default function ControllerVideo() {
     const nextIndex = (currentIndex + 1) % totalVideos;
     const nextVideo = getVideoByIndex(nextIndex);
 
-    const idToNumberMap = {
-      rain: 1,
-      shkira: 2,
-      mishpachti: 3,
-      avirot: 4,
-      shranim: 5,
-      shamesh: 6
-    };
+   
 
     if (nextVideo) {
        console.log('Start button clicked. Publishing MQTT commands...');

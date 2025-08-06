@@ -143,7 +143,7 @@ export default function Header() {
           }}>
             {isPaymentComplete ? (
               <>
-              <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end', paddingTop: '5px'}}>
+              <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end', paddingTop: '20px'}}>
                 
               <img 
                   src={logoM} 

@@ -26,12 +26,12 @@
   position: relative;
   left: 0;
   margin-left: 40.56px;
-  bottom: 140px;
+
   display: flex;
   align-items: center; 
   gap: 20px; 
   flex-direction: row-reverse;
-  transform: translateY(20%);
+  transform: translateY(-90%);
   padding-bottom: 1%;
   z-index: 1000; /* Ensure it stays above other content */
 }
@@ -39,7 +39,7 @@
 .purchase-button {
   width: 120px;
   height: 120px;
-  transform: translate(-25px,20px);
+  transform: translate(-25px,10px);
   border: 0.5px solid #000;
   background: #DFDED0;
   border-radius: 159.323px;
