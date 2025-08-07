@@ -48,7 +48,7 @@ export default function ControllerPurchase() {
   const handleBackToController = () => {
     navigate('/controller/transition', { state: { skipIntro: true } });
   };
-ה
+
 
   const handleBackToVideo = () => {
     navigate(`/controller/video/${videoId}`);
